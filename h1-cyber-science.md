@@ -129,3 +129,10 @@ then returned
 ```
 Hello, Tero!
 ```
+
+## References
+* Anthropic. 2026. Claude (Opus 5.5) [large language model]. Used 24-27 October 2026 for: a plan for reading a review article, feedback on the Gagniuc review, explanation of META, creating list of references. https://claude.ai.
+* Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. https://doi.org/10.1016/j.cosrev.2026.101025.
+* Karvinen, T. 2025. Start Your Research with a Review Article. Accessed: 24 October 2026. https://terokarvinen.com/review-article/.
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h1 CyberScience. Accessed: 24 October 2026. https://terokarvinen.com/cyber-security/#h1-cyberscience.
+* Julkaisufoorumi. JUFO portal. Accessed: 24 October 2026. https://jfp.csc.fi/jufoportal.
