@@ -3,7 +3,7 @@
 ## Review of the article
 
 **Gagniuc, P. A. (2026). Why educated users still click: a review on phishing and the limits of human judgment. *Computer Science Review,* 62, 101025.**\
-https://doi.org/10.1016/j.cosrev.2026.101025 \
+[https://doi.org/10.1016/j.cosrev.2026.101025](https://doi.org/10.1016/j.cosrev.2026.101025) \
 JUFO 1
 
 The article focuses on phishing, a form of socail engineering, and aims to answer next research questions:
@@ -100,8 +100,8 @@ The remaining risk of about 240 000 € per year.\
 I set the alert using Google Scholar alerts.
 
 ### Installing Linux on a virtual machine.
-- Downloaded UTM Virtual machine software: https://getutm.app/
-- Downloaded Kali Installer Image for x86_64: https://www.kali.org/get-kali/#kali-installer-images
+- Downloaded UTM Virtual machine software: [https://getutm.app](https://getutm.app)
+- Downloaded Kali Installer Image for x86_64: [https://www.kali.org/get-kali/#kali-installer-images](https://www.kali.org/get-kali/#kali-installer-images)
 - Installed UTM and then created virtual machine from Kali image.
 
 ### Technical puzzle
@@ -131,8 +131,8 @@ Hello, Tero!
 ```
 
 ## References
-* Anthropic. 2026. Claude (Opus 5.5) [large language model]. Used 24-27 October 2026 for: a plan for reading a review article, feedback on the Gagniuc review, explanation of META, creating list of references. https://claude.ai.
-* Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. https://doi.org/10.1016/j.cosrev.2026.101025.
-* Karvinen, T. 2025. Start Your Research with a Review Article. Accessed: 24 October 2026. https://terokarvinen.com/review-article/.
-* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h1 CyberScience. Accessed: 24 October 2026. https://terokarvinen.com/cyber-security/#h1-cyberscience.
-* Julkaisufoorumi. JUFO portal. Accessed: 24 October 2026. https://jfp.csc.fi/jufoportal.
+* Anthropic. 2026. Claude (Opus 5.5) [large language model]. Used 24-27 October 2026 for: a plan for reading a review article, feedback on the Gagniuc review, explanation of META, creating list of references. [https://claude.ai](https://claude.ai).
+* Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. [https://doi.org/10.1016/j.cosrev.2026.101025](https://doi.org/10.1016/j.cosrev.2026.101025).
+* Karvinen, T. 2025. Start Your Research with a Review Article. Accessed: 24 October 2026. [https://terokarvinen.com/review-article/](https://terokarvinen.com/review-article/).
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h1 CyberScience. Accessed: 24 October 2026. [https://terokarvinen.com/cyber-security/#h1-cyberscience](https://terokarvinen.com/cyber-security/#h1-cyberscience).
+* Julkaisufoorumi. JUFO portal. Accessed: 24 October 2026. [https://jfp.csc.fi/jufoportal](https://jfp.csc.fi/jufoportal).
