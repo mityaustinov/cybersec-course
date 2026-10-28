@@ -1,5 +1,26 @@
 # H1_CyberScience
 
+## Science hunt
+
+To find an article to review I used Google Scholar. In Cyber Security among other topics I'm particularly interested in social engineering, so I used "social engineering review article" search request to see first results. After that to speed-up the search and exclude results that don't meet the requirements I used next filters:
+
+* Since 2025
+* Review articles
+
+Several interesting titles caught my attention, however checking them against the JUFO level showed that only part of articles meet the criteria, thus my shortlist of review candidates was as follows:
+
+1. Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. [https://doi.org/10.1016/j.cosrev.2026.101025](https://doi.org/10.1016/j.cosrev.2026.101025).
+
+1. Rathod, T., Jadav, N. K., Tanwar, S., Alabdulatif, A., Garg, D. & Singh, A. 2025. A comprehensive survey on social engineering attacks, countermeasures, case study, and research challenges. Information Processing & Management, 62(1), 103928. [https://doi.org/10.1016/j.ipm.2024.103928](https://doi.org/10.1016/j.ipm.2024.103928).
+
+1. Triantafyllopoulos, A., Spiesberger, A. A., Tsangko, I., Jing, X., Distler, V., Dietz, F., Alt, F. & Schuller, B. W. 2025. Vishing: detecting social engineering in spoken communication — a first survey & urgent roadmap to address an emerging societal challenge. Computer Speech & Language, 94, 101802. [https://doi.org/10.1016/j.csl.2025.101802](https://doi.org/10.1016/j.csl.2025.101802).
+
+I decided to choose the article #1 for the next reasons:
+
+* phishing is the kind of attack, organizations face daily and knowing its and countermeasures' current status is important;
+* brief review of the abstract showed that it gives a broad picture of phishing specifically, while others focus either on social engineering in general or on its linguistic aspect;
+* it is the most recent one.
+
 ## Review of the article
 
 **Gagniuc, P. A. (2026). Why educated users still click: a review on phishing and the limits of human judgment. *Computer Science Review,* 62, 101025.**\
@@ -103,6 +124,14 @@ I set the alert using Google Scholar alerts.
 - Downloaded UTM Virtual machine software: [https://getutm.app](https://getutm.app)
 - Downloaded Kali Installer Image for x86_64: [https://www.kali.org/get-kali/#kali-installer-images](https://www.kali.org/get-kali/#kali-installer-images)
 - Installed UTM and then created virtual machine from Kali image.
+
+<img src="assets/utm.png" alt="UTM software with Kali VM details" width="600" />
+
+*Figure 1. UTM software with Kali VM details*
+
+<img src="assets/kali.png" alt="Kali desktop with Terminal window opened" width="800" />
+
+*Figure 2. Kali desktop with Terminal window opened*
 
 ### Technical puzzle
 I have seen and used such symbol sequences before. I thought that this must be a string encoded with Base64, so I used a command line to decode it:
