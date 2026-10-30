@@ -47,7 +47,7 @@ The article focuses on phishing, a form of socail engineering, and aims to answe
 * Structured human-executable decision procedures, meaning clear step-by-step checks that users follow before acting (p. 17–18).
 * How research methods (lab vs. real world, static vs. time-based data) change the reported results (p. 10–11, 19).
 
-### What's widely agreed upon?
+### What\'s widely agreed upon?
 
 * Phishing works mainly by exploiting human decisions, rather than technical weaknesses. Simple tricks still succeed, even against experienced users (p. 1, 11).
 * The strongest psychological triggers are authority, urgency and fear of loss. Other effects, such as social proof, fatigue and multitasking, make these triggers stronger (p. 12–13).
@@ -113,7 +113,7 @@ Insurance covers part of the incident response. Fines and reputation damage can'
 #### Eliminate
 Partily solves the problem: delete data of customers who are inactive for over 3 years. Data that is not stored can’t leak.
 #### Accept
-The remaining risk of about 240 000 € per year.\
+The remaining risk of about 240 000 € per year.
 
 ## Voluntary Bonus Tasks
 
