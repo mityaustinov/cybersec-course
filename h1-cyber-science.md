@@ -123,7 +123,7 @@ I set the alert using Google Scholar alerts.
 ### Installing Linux on a virtual machine.
 - Downloaded UTM Virtual machine software: [https://getutm.app](https://getutm.app)
 - Downloaded Kali Installer Image for x86_64: [https://www.kali.org/get-kali/#kali-installer-images](https://www.kali.org/get-kali/#kali-installer-images)
-- Installed UTM and then created virtual machine from Kali image.
+- Installed UTM and then created virtual machine using Kali image.
 
 <img src="assets/utm.png" alt="UTM software with Kali VM details" width="600" />
 
