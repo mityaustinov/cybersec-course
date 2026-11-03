@@ -4,7 +4,7 @@
 
 ### Podcast
 
-I listened to [Episode 144: Rachel](https://darknetdiaries.com/episode/144/) of the Darknet Diaries podcast. Frankly, I listened to this particular episode when it was released in April 2024, because I follow the podcast, and listened to it again for this task. I chose specifically this one because I like the subject of social engineering, and this one shows explicitly that if an ethical hacker with good intentions can do such tricks to their targets, differently motivated bad guys can do much more damage.
+I listened to [Episode 144: Rachel](https://darknetdiaries.com/episode/144/) of the Darknet Diaries podcast. Frankly, I listened to this particular episode when it was released in April 2024, because I follow the podcast, and listened to it again for this task. I chose specifically this one because I like the subject of social engineering, and this episode shows explicitly that if an ethical hacker with good intentions can do such tricks to their targets, differently motivated bad guys can do much more damage.
 
 ---
 
@@ -106,9 +106,13 @@ I have downloaded and installed [NetNewsWire](https://netnewswire.com/) RSS read
 
 *Figure 3. NetNewsWire interface with list of subscriptions.*
 
-<!-- ### More content
+### More content
 
-Text -->
+* Rhysider 2026: [Darknet Diaries, Episode 181: Ricky](https://darknetdiaries.com/episode/181/). Published 20.10.2026.
+* Unit 42 2026: [Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/). Unit 42, Palo Alto Networks. Published 29.10.2026.
+* Harris 2026: [Podcast With Rene Mattheus](https://covertaccessteam.substack.com/p/podcast-with-rene-mattheus?utm_source=publication-search). Published 4.09.2026.
+
+https://darknetdiaries.com/episode/181/
 
 ## References
 * Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. [https://doi.org/10.1016/j.cosrev.2026.101025](https://doi.org/10.1016/j.cosrev.2026.101025).
