@@ -112,8 +112,6 @@ I have downloaded and installed [NetNewsWire](https://netnewswire.com/) RSS read
 * Unit 42 2026: [Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619](https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/). Unit 42, Palo Alto Networks. Published 29.10.2026.
 * Harris 2026: [Podcast With Rene Mattheus](https://covertaccessteam.substack.com/p/podcast-with-rene-mattheus?utm_source=publication-search). Published 4.09.2026.
 
-https://darknetdiaries.com/episode/181/
-
 ## References
 * Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. [https://doi.org/10.1016/j.cosrev.2026.101025](https://doi.org/10.1016/j.cosrev.2026.101025).
 * Kaleli, Marty, Starov & He 2026: [The Current Landscape of OAuth Attacks](https://unit42.paloaltonetworks.com/current-landscape-oauth-attacks/). Unit 42, Palo Alto Networks. Published 22.10.2026, updated 26.10.2026.
