@@ -1,6 +1,6 @@
 # H2_Scene
 
-## Following the scene
+## Following the scene 
 
 ### Podcast
 
@@ -85,7 +85,7 @@ The connections are laid out as in the following example:
 
 ## Voluntary tasks
 
-### Install Debian
+### Install Debian [#](#debian)
 
 - UTM Virtual machine software was [downloaded and installed](h1-cyber-science.md#installing-linux-on-a-virtual-machine) previously.
 - Created virtual machine using Debian image.
@@ -115,5 +115,5 @@ I have downloaded and installed [NetNewsWire](https://netnewswire.com/) RSS read
 ## References
 * Gagniuc, P. A. 2026. Why educated users still click: a review on phishing and the limits of human judgment. Computer Science Review, 62, 101025. [https://doi.org/10.1016/j.cosrev.2026.101025](https://doi.org/10.1016/j.cosrev.2026.101025).
 * Kaleli, Marty, Starov & He 2026: [The Current Landscape of OAuth Attacks](https://unit42.paloaltonetworks.com/current-landscape-oauth-attacks/). Unit 42, Palo Alto Networks. Published 22.10.2026, updated 26.10.2026.
-* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h1 CyberScience. [https://terokarvinen.com/cyber-security/#h2-scene](https://terokarvinen.com/cyber-security/#h1-cyberscience).
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h2 Scene. [https://terokarvinen.com/cyber-security/#h2-scene](https://terokarvinen.com/cyber-security/#h2-scene).
 * Rhysider 2024: [Darknet Diaries, Episode 144: Rachel](https://darknetdiaries.com/episode/144/). Published 2.4.2024.
