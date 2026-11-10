@@ -48,7 +48,7 @@ Presentation is scheduled on December 12, 2026, w50.
 
 ## b. Linux
 
-I have installed Linux, [Kali](h1-cyber-science.md#kali) and [Debian](h2-scene.md#debian) as voluntary tasks for homeworks h1 and h2.
+I have installed Linux, [Kali](https://mityaustinov.github.io/cybersec-course/h1-cyber-science.html#installing-linux-on-a-virtual-machine-) and [Debian](https://mityaustinov.github.io/cybersec-course/h2-scene.html#install-debian-) as voluntary tasks for homeworks h1 and h2.
 
 ## Voluntary bonuses
 
@@ -83,7 +83,6 @@ If for some reason you want all previous cracks cleared, you can delete the `.po
 *Figure 3. Clearing hashcat .potfile*
 
 `6b1628b016dff46e6fa35684be6acc96:summer` It's a pretty weak password.
-
 
 ### d. John the Ripper
 

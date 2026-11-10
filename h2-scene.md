@@ -85,7 +85,7 @@ The connections are laid out as in the following example:
 
 ## Voluntary tasks
 
-### Install Debian [#](#debian)
+### Install Debian
 
 - UTM Virtual machine software was [downloaded and installed](h1-cyber-science.md#installing-linux-on-a-virtual-machine) previously.
 - Created virtual machine using Debian image.
