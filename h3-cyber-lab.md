@@ -1,4 +1,4 @@
-# H3_Cyber lab
+# H3_CyberLab
 
 ## x. Read and summarize
 
