@@ -48,18 +48,50 @@ Presentation is scheduled on December 12, 2026, w50.
 
 ## b. Linux
 
-I have installed Linux, [Kali](h1-cyber-science.md#kali) and [Debian](h2-scene.md#debian) as voluntary tasks.
+I have installed Linux, [Kali](h1-cyber-science.md#kali) and [Debian](h2-scene.md#debian) as voluntary tasks for homeworks h1 and h2.
 
 ## Voluntary bonuses
 
 ### c. Crack. 
 
-6b1628b016dff46e6fa35684be6acc96
+First I identified hash type
+
+<img src="assets/hashid.png" alt="Hash type identification" width="800" />
+
+*Figure 1. Hash type identification*
+
+Then I run `hashcat` to find a match in `rockyou` dictionary and store the result in `solved` text file. 
+
+```bash
+hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt -o solved
+```
+
+<img src="assets/hashcat.png" alt="Password cracking and showing the result" width="800" />
+
+*Figure 2. Password cracking and showing the result*
+
+Already cracked matches are also stored in hashcat's `.potfile`. Running hashcat on the same hash again won't crack it. To view the result the command must be ran with `--show` parameter.
+
+``` bash
+hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt --show
+```
+
+If for some reason you want all previous cracks cleared, you can delete the `.potfile`
+
+<img src="assets/clear.png" alt="Clearing hashcat .potfile" width="800" />
+
+*Figure 3. Clearing hashcat .potfile*
+
+`6b1628b016dff46e6fa35684be6acc96:summer` It's a pretty weak password.
 
 
 ### d. John the Ripper
 
+Coming soon.
+
 ### e. The other John
+
+Comimng soon.
 
 ## References
 
