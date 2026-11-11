@@ -56,7 +56,7 @@ I have installed Linux, [Kali](https://mityaustinov.github.io/cybersec-course/h1
 
 First I identified hash type
 
-<img src="assets/hashid.png" alt="Hash type identification" width="800" />
+<img src="assets/images//hashid.png" alt="Hash type identification" width="800" />
 
 *Figure 1. Hash type identification*
 
@@ -66,7 +66,7 @@ Then I run `hashcat` to find a match in `rockyou` dictionary and store the resul
 hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt -o solved
 ```
 
-<img src="assets/hashcat.png" alt="Password cracking and showing the result" width="800" />
+<img src="assets/images//hashcat.png" alt="Password cracking and showing the result" width="800" />
 
 *Figure 2. Password cracking and showing the result*
 
@@ -78,7 +78,7 @@ hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt --show
 
 If for some reason you want all previous cracks cleared, you can delete the `.potfile`
 
-<img src="assets/clear.png" alt="Clearing hashcat .potfile" width="800" />
+<img src="assets/images//clear.png" alt="Clearing hashcat .potfile" width="800" />
 
 *Figure 3. Clearing hashcat .potfile*
 
