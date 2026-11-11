@@ -125,11 +125,11 @@ I set the alert using Google Scholar alerts.
 - Downloaded Kali Installer Image for x86_64: [https://www.kali.org/get-kali/#kali-installer-images](https://www.kali.org/get-kali/#kali-installer-images)
 - Installed UTM and then created virtual machine using Kali image.
 
-<img src="assets/utm.png" alt="UTM software with Kali VM details" width="600" />
+<img src="assets/images//utm.png" alt="UTM software with Kali VM details" width="600" />
 
 *Figure 1. UTM software with Kali VM details*
 
-<img src="assets/kali.png" alt="Kali desktop with Terminal window opened" width="800" />
+<img src="assets/images//kali.png" alt="Kali desktop with Terminal window opened" width="800" />
 
 *Figure 2. Kali desktop with Terminal window opened*
 
