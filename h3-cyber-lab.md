@@ -84,6 +84,10 @@ If for some reason you want all previous cracks cleared, you can delete the `.po
 
 `6b1628b016dff46e6fa35684be6acc96:summer` It's a pretty weak password.
 
+UPD: **Personal notes**
+  * Provided hash was for practice only. Having the means to get someone's password doesn't make it right to do so. Whether you can see someone typing their password or you have access to leaked hashes, the ethical move would be not to use it. Just as a decent person turns their eyes from a screen when someone types a PIN or password, a decent person with the skills to crack a hash chooses not to, unless they have permission.
+  * Hashing protects stored passwords, so a leaked database doesn't immediately reveal them. On its own it's weaker than it used to be, because fast hashes like MD5 can be brute-forced quickly. Adding a unique "salt" to each password is a standard improvement.
+
 ### d. John the Ripper
 
 Coming soon.
