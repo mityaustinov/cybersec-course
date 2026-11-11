@@ -1,0 +1,40 @@
+<!-- flag{y0u_r34d_th3_s0urc3} -->
+<footer class="site-footer">
+  <p>
+    &copy;
+    <button type="button" class="egg" id="egg-year"
+            data-encoded="0x7EA" data-decoded="2026"
+            title="Click to decode">0x7EA</button>
+    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    &middot;
+    <button type="button" class="egg" id="egg-motto"
+            data-encoded="U3RheSBjdXJpb3VzLg==" data-decoded="Stay curious."
+            title="Click to decode">U3RheSBjdXJpb3VzLg==</button>
+  </p>
+</footer>
+
+<script>
+  // DevTools message
+  console.log(
+    "%cI see, we have a console inspector here!",
+    "color:#0f0;font-family:'Roboto Mono',monospace;font-size:14px"
+  );
+
+  // Keep the hex year current (falls back to the static 0x7EA without JS)
+  (function () {
+    var year = new Date().getFullYear();
+    var el = document.getElementById("egg-year");
+    el.dataset.encoded = "0x" + year.toString(16).toUpperCase();
+    el.dataset.decoded = String(year);
+    el.textContent = el.dataset.encoded;
+  })();
+
+  // Toggles between encoded and decoded text
+  document.querySelectorAll(".egg").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var showingEncoded = el.textContent === el.dataset.encoded;
+      el.textContent = showingEncoded ? el.dataset.decoded : el.dataset.encoded;
+      el.title = showingEncoded ? "Click to encode" : "Click to decode";
+    });
+  });
+</script>
