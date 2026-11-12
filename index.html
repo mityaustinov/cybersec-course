@@ -23,7 +23,7 @@ nav:
 
     <ul class="term-menu" id="term-menu">
       {% for item in page.nav %}
-        <li><a href="{{ item.url | relative_url }}" data-title="{{ item.title | escape }}">[{{ forloop.index }}] {{ item.title | escape }}</a></li>
+        <li><a href="{{ item.url | relative_url }}" data-title="{{ item.title | escape }}">[{{ forloop.index0 }}] {{ item.title | escape }}</a></li>
       {% endfor %}
     </ul>
 
