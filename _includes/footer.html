@@ -2,14 +2,16 @@
 <footer class="site-footer mt-5 pt-5">
   <p>
     &copy;
-    <button type="button" class="egg" id="egg-year"
-            data-encoded="0x7EA" data-decoded="2026"
-            title="Click to decode">0x7EA</button>
+    <button type="button" class="egg" id="egg-year" data-encoded="0x7EA" data-decoded="2026"
+      title="Click to decode">0x7EA</button>
+    {% if page.url == '/' %}
+    <span>{{ site.title }}</span>
+    {% else %}
     <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    &middot;
-    <button type="button" class="egg" id="egg-motto"
-            data-encoded="U3RheSBjdXJpb3VzLg==" data-decoded="Stay curious"
-            title="Click to decode">U3RheSBjdXJpb3Vz==</button>
+    {% endif %}
+    //
+    <button type="button" class="egg" id="egg-motto" data-encoded="U3RheSBjdXJpb3VzLg==" data-decoded="Stay curious"
+      title="Click to decode">U3RheSBjdXJpb3Vz==</button>
   </p>
 </footer>
 
