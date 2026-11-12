@@ -82,3 +82,100 @@ code, kbd, pre, samp, tt,
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+
+/* Homepage */
+body.home {
+    background: #000;
+    color: #00FF41;
+  }
+
+  .markdown-body .terminal {
+    --term-green: #00FF41;
+    --term-dim: #00A82A;
+    background: #000;
+    border: 1px solid var(--term-dim);
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    color: var(--term-green);
+    box-shadow: 0 0 24px rgba(0, 255, 65, 0.15);
+    overflow: hidden;
+  }
+
+  .markdown-body .term-bar {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid var(--term-dim);
+    color: var(--term-dim);
+    font-size: 0.8rem;
+  }
+
+  .markdown-body .term-body {
+    padding: 1rem;
+    height: min(60vh, 28rem);
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    cursor: text;
+  }
+
+  .markdown-body .terminal p,
+  .markdown-body .term-out {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .markdown-body .term-dim {
+    color: var(--term-dim);
+  }
+
+  .markdown-body .term-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 1rem;
+  }
+
+  .markdown-body .term-menu li {
+    margin: 0;
+  }
+
+  .markdown-body .term-menu a {
+    display: block;
+    padding: 0 0.5rem;
+    color: var(--term-green);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .markdown-body .term-menu a::before {
+    content: "  ";
+    white-space: pre;
+  }
+
+  .markdown-body .term-menu a.selected::before {
+    content: "> ";
+  }
+
+  .markdown-body .term-menu a.selected,
+  .markdown-body .term-menu a:focus-visible {
+    background: var(--term-green);
+    color: #000;
+    outline: none;
+  }
+
+  .markdown-body .term-input-line {
+    display: flex;
+    gap: 0.6ch;
+    margin-top: 0.5rem;
+  }
+
+  .markdown-body .term-input-line input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    color: var(--term-green);
+    caret-color: var(--term-green);
+    font: inherit;
+  }
