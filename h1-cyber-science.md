@@ -47,7 +47,7 @@ The article focuses on phishing, a form of socail engineering, and aims to answe
 * Structured human-executable decision procedures, meaning clear step-by-step checks that users follow before acting (p. 17–18).
 * How research methods (lab vs. real world, static vs. time-based data) change the reported results (p. 10–11, 19).
 
-### What's widely agreed upon?
+### What\'s widely agreed upon?
 
 * Phishing works mainly by exploiting human decisions, rather than technical weaknesses. Simple tricks still succeed, even against experienced users (p. 1, 11).
 * The strongest psychological triggers are authority, urgency and fear of loss. Other effects, such as social proof, fatigue and multitasking, make these triggers stronger (p. 12–13).
@@ -113,49 +113,49 @@ Insurance covers part of the incident response. Fines and reputation damage can'
 #### Eliminate
 Partily solves the problem: delete data of customers who are inactive for over 3 years. Data that is not stored can’t leak.
 #### Accept
-The remaining risk of about 240 000 € per year.\
+The remaining risk of about 240 000 € per year.
 
 ## Voluntary Bonus Tasks
 
 ### Email alert
 I set the alert using Google Scholar alerts.
 
-### Installing Linux on a virtual machine.
+### Installing Linux on a virtual machine
 - Downloaded UTM Virtual machine software: [https://getutm.app](https://getutm.app)
 - Downloaded Kali Installer Image for x86_64: [https://www.kali.org/get-kali/#kali-installer-images](https://www.kali.org/get-kali/#kali-installer-images)
 - Installed UTM and then created virtual machine using Kali image.
 
-<img src="assets/utm.png" alt="UTM software with Kali VM details" width="600" />
+<img src="assets/images//utm.png" alt="UTM software with Kali VM details" width="600" />
 
 *Figure 1. UTM software with Kali VM details*
 
-<img src="assets/kali.png" alt="Kali desktop with Terminal window opened" width="800" />
+<img src="assets/images//kali.png" alt="Kali desktop with Terminal window opened" width="800" />
 
 *Figure 2. Kali desktop with Terminal window opened*
 
 ### Technical puzzle
 I have seen and used such symbol sequences before. I thought that this must be a string encoded with Base64, so I used a command line to decode it:
-```
+```bash
 echo -n "==gCh8mclRFIs8GbsVGS" | base64 -d
 ```
 Decoding didn't succeed:
-```
+```bash
 base64: stdin: (null): error decoding base64 input stream
 ```
 Typically two equal signs `==` appear at the end of the line and I thought that this particular line is probably reversed, so I decided to flip it before applying decoding again:
-```
+```bash
 echo "==gCh8mclRFIs8GbsVGS" | rev
 ```
 The output then was
-```
+```bash
 SGVsbG8sIFRlcm8hCg==
 ```
 Decoding this string
-```
+```bash
 echo -n "SGVsbG8sIFRlcm8hCg==" | base64 -d
 ```
 then returned 
-```
+```bash
 Hello, Tero!
 ```
 

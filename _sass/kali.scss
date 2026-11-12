@@ -1,0 +1,81 @@
+// Code blocks in the Kali-Dark QTerminal palette
+// Source of values: Kali-Dark QTerminal scheme (community port)
+
+$kali-bg:       #23252e;
+$kali-fg:       #ffffff;
+$kali-white:    #e6e6e6;
+$kali-red:      #ec0101;
+$kali-green:    #5ebdad;
+$kali-green-hi: #47d4b9;
+$kali-yellow:   #fea44c;
+$kali-blue:     #367bf0;
+$kali-blue-hi:  #277fff;
+$kali-magenta:  #9755b3;
+$kali-cyan:     #49aee6;
+$kali-comment:  #8b929e;
+
+.markdown-body div.highlighter-rouge,
+.markdown-body .highlight {
+  background: $kali-bg;
+  border-radius: 6px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background: $kali-bg;
+  color: $kali-fg;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  line-height: 1.5;
+  padding: 1rem;
+  border: 0;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.markdown-body pre code {
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  padding: 0;
+}
+
+// Syntax colors (Rouge token classes)
+.markdown-body .highlight {
+  // comments
+  .c, .c1, .cm, .cs, .cd, .ch, .cpf { color: $kali-comment; font-style: italic; }
+
+  // keywords
+  .k, .kc, .kd, .kn, .kp, .kr, .kv { color: $kali-cyan; }
+  .kt { color: $kali-cyan; }
+
+  // strings
+  .s, .s1, .s2, .sa, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .ss, .dl { color: $kali-green; }
+
+  // numbers
+  .m, .mb, .mf, .mh, .mi, .mo, .il { color: $kali-yellow; }
+
+  // names
+  .nf, .fm { color: $kali-blue-hi; }
+  .nc, .nn { color: $kali-yellow; }
+  .nb, .bp { color: $kali-green-hi; }      // built-ins, e.g. echo, cd
+  .nv, .vi, .vc, .vg { color: $kali-magenta; }
+  .nt { color: $kali-red; }                // HTML tags
+  .na { color: $kali-yellow; }             // attributes
+  .no { color: $kali-yellow; }             // constants
+
+  // operators and punctuation
+  .o, .ow, .p { color: $kali-fg; }
+
+  // shell sessions (```console blocks)
+  .gp { color: $kali-blue; font-weight: bold; }  // prompt
+  .go { color: $kali-white; }                    // command output
+
+  // diffs
+  .gi { color: $kali-green-hi; }
+  .gd { color: $kali-red; }
+  .gh, .gu { color: $kali-cyan; font-weight: bold; }
+
+  // Rouge marks unknown characters as errors
+  .err { color: inherit; background: none; }
+}

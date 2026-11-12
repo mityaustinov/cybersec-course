@@ -1,4 +1,4 @@
-# H0_Hello,_friend!
+# H0_HelloFriend!
 
 You are probably here to check my homework assignment or cross evaluate it. Perhaps you are just browsing some random repositories, which is fine, but you won't find much here, just some MarkDown (`.md`) files.
 
@@ -10,7 +10,7 @@ You are probably here to check my homework assignment or cross evaluate it. Perh
 You can add code pieces to the markdown. They can be inline: `# comment it is. trust me you must.`
 
 Or they can be code blocks. General ones...
-```
+```md
 // Continue coding below this line.
 ```
 
