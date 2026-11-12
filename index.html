@@ -110,6 +110,13 @@ nav:
   };
   commands.cd = commands.open;
 
+  function logCommand(cmd) {
+    var name = Object.prototype.hasOwnProperty.call(commands, cmd) ? cmd : "unknown";
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: "terminal-" + name, title: "Terminal: " + name, event: true });
+    }
+  }
+
   function run(line) {
     print("guest@icb705:~$ " + line, true);
     var trimmed = line.trim();
@@ -120,6 +127,8 @@ nav:
     var parts = trimmed.split(/\s+/);
     var cmd = parts[0].toLowerCase();
     var args = parts.slice(1);
+
+    logCommand(cmd);
 
     if (Object.prototype.hasOwnProperty.call(commands, cmd)) {
       commands[cmd](args).forEach(function (l) { print(l); });
