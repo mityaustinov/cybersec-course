@@ -97,7 +97,7 @@ nav:
     open: function (args) {
       if (!args.length) return ["Usage: open <number or name>"];
       var n = parseInt(args[0], 10);
-      open(isNaN(n) ? findByName(args.join(" ")) : n - 1);
+      open(isNaN(n) ? findByName(args.join(" ")) : n);
       return [];
     },
     clear: function () { output.textContent = ""; return []; },
@@ -114,7 +114,7 @@ nav:
     var trimmed = line.trim();
 
     if (trimmed === "") { open(selected); return; }
-    if (/^\d+$/.test(trimmed)) { open(parseInt(trimmed, 10) - 1); return; }
+    if (/^\d+$/.test(trimmed)) { open(parseInt(trimmed, 10)); return; }
 
     var parts = trimmed.split(/\s+/);
     var cmd = parts[0].toLowerCase();
