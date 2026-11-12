@@ -1,0 +1,167 @@
+---
+layout: default
+title: Home
+body_class: home
+# List of reports
+nav:
+  - title: "h0_HelloFriend!"
+    url: /h0-hello-friend.html
+  - title: "h1_CyberScience"
+    url: /h1-cyber-science.html
+  - title: "h2_Scene"
+    url: /h2-scene.html
+  - title: "h3_CyberLab"
+    url: /h3-cyber-lab.html
+---
+
+<section class="terminal" aria-label="Site navigation">
+  <div class="term-bar">guest@icb705: ~</div>
+
+  <div class="term-body" id="term-body">
+    <p class="term-dim">Last login: from 127.0.0.1</p>
+    <p>Reports:</p>
+
+    <ul class="term-menu" id="term-menu">
+      {% for item in page.nav %}
+        <li><a href="{{ item.url | relative_url }}" data-title="{{ item.title | escape }}">[{{ forloop.index }}] {{ item.title | escape }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <p class="term-dim">Use ↑ ↓ and Enter, or click. Type 'help' for commands.</p>
+
+    <div id="term-output" aria-live="polite"></div>
+
+    <div class="term-input-line">
+      <label for="term-input">guest@icb705:~$</label>
+      <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll("#term-menu a"));
+  var input = document.getElementById("term-input");
+  var output = document.getElementById("term-output");
+  var body = document.getElementById("term-body");
+  var selected = 0;
+
+  function select(i) {
+    if (!links.length) return;
+    selected = (i + links.length) % links.length;
+    links.forEach(function (a, j) { a.classList.toggle("selected", j === selected); });
+  }
+
+  // textContent (not innerHTML), so typed input can never become HTML
+  function print(text, dim) {
+    var line = document.createElement("div");
+    line.className = "term-out" + (dim ? " term-dim" : "");
+    line.textContent = text;
+    output.appendChild(line);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function open(i) {
+    if (i < 0 || i >= links.length) {
+      print("No report with that number. Type 'ls' to see the list.");
+      return;
+    }
+    print("Opening " + links[i].dataset.title + " ...", true);
+    setTimeout(function () { window.location.href = links[i].href; }, 300);
+  }
+
+  function findByName(name) {
+    name = name.toLowerCase();
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].dataset.title.toLowerCase().indexOf(name) !== -1) return i;
+    }
+    return -1;
+  }
+
+  var commands = {
+    help: function () {
+      return [
+        "Available commands:",
+        "  ls           list reports",
+        "  open <n>     open report by number or name (also: cd)",
+        "  clear        clear the screen",
+        "  whoami       who are you?",
+        "  date         show the date",
+        "  echo <text>  print text",
+        "  help         show this help"
+      ];
+    },
+    ls: function () {
+      return links.map(function (a) { return a.textContent; });
+    },
+    open: function (args) {
+      if (!args.length) return ["Usage: open <number or name>"];
+      var n = parseInt(args[0], 10);
+      open(isNaN(n) ? findByName(args.join(" ")) : n - 1);
+      return [];
+    },
+    clear: function () { output.textContent = ""; return []; },
+    whoami: function () { return ["guest. Definitely not root."]; },
+    date: function () { return [new Date().toString()]; },
+    echo: function (args) { return [args.join(" ")]; },
+    sudo: function () { return ["Nice try. This incident will be reported."]; },
+    exit: function () { return ["There is no exit. Only links."]; }
+  };
+  commands.cd = commands.open;
+
+  function run(line) {
+    print("guest@icb705:~$ " + line, true);
+    var trimmed = line.trim();
+
+    if (trimmed === "") { open(selected); return; }
+    if (/^\d+$/.test(trimmed)) { open(parseInt(trimmed, 10) - 1); return; }
+
+    var parts = trimmed.split(/\s+/);
+    var cmd = parts[0].toLowerCase();
+    var args = parts.slice(1);
+
+    if (Object.prototype.hasOwnProperty.call(commands, cmd)) {
+      commands[cmd](args).forEach(function (l) { print(l); });
+    } else {
+      print(cmd + ": command not supported. This terminal only does navigation. Type 'help'.");
+    }
+  }
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      run(input.value);
+      input.value = "";
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+      e.preventDefault();
+      select(selected + (e.key === "ArrowDown" ? 1 : -1));
+      return;
+    }
+    // Typing anywhere goes into the terminal
+    if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey &&
+        document.activeElement !== input) {
+      input.focus();
+    }
+  });
+
+  links.forEach(function (a, i) {
+    a.addEventListener("mouseenter", function () { select(i); });
+  });
+
+  // Clicking empty terminal space focuses the prompt
+  body.addEventListener("click", function (e) {
+    if (e.target.closest("a")) return;
+    if (window.getSelection().toString() === "") input.focus();
+  });
+
+  select(0);
+
+  // Focus the prompt on desktop only, so phones don't pop up the keyboard
+  if (window.matchMedia("(pointer: fine)").matches) {
+    input.focus({ preventScroll: true });
+  }
+})();
+</script>
