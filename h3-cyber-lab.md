@@ -11,7 +11,7 @@
 * To install an operating system on a VirtualBox virtual machine, the VM must be assigned RAM, CPUs and disk space (Minimum 2048 MB RAM (4096 MB recommended), 2 CPUs, EFI enabled, and a 20–40 GB disk.), and the ISO must be mounted.
 * Before the real installation, Debian can be tested for hardware compatibility in a live session (Live install), and then installed fully (Real installation).
 * After the system is installed, it is important to update the package list and upgrade the system by running the following commands in Terminal:
-  ```sh
+  ```bash
   sudo apt-get update
   sudo apt-get upgrade
   ```

@@ -135,27 +135,27 @@ I set the alert using Google Scholar alerts.
 
 ### Technical puzzle
 I have seen and used such symbol sequences before. I thought that this must be a string encoded with Base64, so I used a command line to decode it:
-```
+```bash
 echo -n "==gCh8mclRFIs8GbsVGS" | base64 -d
 ```
 Decoding didn't succeed:
-```
+```bash
 base64: stdin: (null): error decoding base64 input stream
 ```
 Typically two equal signs `==` appear at the end of the line and I thought that this particular line is probably reversed, so I decided to flip it before applying decoding again:
-```
+```bash
 echo "==gCh8mclRFIs8GbsVGS" | rev
 ```
 The output then was
-```
+```bash
 SGVsbG8sIFRlcm8hCg==
 ```
 Decoding this string
-```
+```bash
 echo -n "SGVsbG8sIFRlcm8hCg==" | base64 -d
 ```
 then returned 
-```
+```bash
 Hello, Tero!
 ```
 
