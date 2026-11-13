@@ -4,7 +4,7 @@
 	  <a href="{{ '/' | relative_url }}">&larr; Where it all begins</a>
 	</div>   
   {% endunless %}
-<pre class="ascii-banner" role="img" aria-label="ICB705AS3YE-3002">
+<pre class="ascii-banner" role="img" aria-label="ICB705AS3YE-3002" id="hh-id-banner">
  _____ _____ ____ ______ ___  _____          _____ ______     ________     ____   ___   ___ ___
 |_   _/ ____|  _ \____  / _ \| ____|  /\    / ____|___ \ \   / /  ____|   |___ \ / _ \ / _ \__ \
   | || |    | |_) |  / / | | | |__   /  \  | (___   __) \ \_/ /| |__ ______ __) | | | | | | | ) |
@@ -12,4 +12,118 @@
  _| || |____| |_) |/ / | |_| |___) / ____ \ ____) |___) | | |  | |____     ___) | |_| | |_| / /_
 |_____\_____|____//_/   \___/|____/_/    \_\_____/|____/  |_|  |______|   |____/ \___/ \___/____|
 </pre>
+
+<pre class="ascii-banner" role="img" aria-label="CYBER SECURITY" id="sybersec-banner">
+ _______     ______  ______ _____     _____ ______ _____ _    _ _____  _____ _________     __
+/ ____\ \   / /  _ \|  ____|  __ \   / ____|  ____/ ____| |  | |  __ \|_   _|__   __\ \   / /
+| |     \ \_/ /| |_) | |__  | |__) | | (___ | |__ | |    | |  | | |__) | | |    | |   \ \_/ /
+| |      \   / |  _ &lt;|  __| |  _  /   \___ \|  __|| |    | |  | |  _  /  | |    | |    \   /
+| |____   | |  | |_) | |____| | \ \   ____) | |___| |____| |__| | | \ \ _| |_   | |     | |
+\_____|  |_|  |____/|______|_|  \_\ |_____/|______\_____|\____/|_|  \_\_____|  |_|     |_|
+</pre>
 </header>
+
+<script>
+(function () {
+  var banners = Array.prototype.slice.call(document.querySelectorAll(".site-header .ascii-banner"));
+  if (banners.length < 2) return;
+
+  var INTERVAL = 7000;        // pause between transitions, in ms
+  var EFFECT = "alternate";   // "glitch", "lines" or "alternate"
+  var GLITCH_CHARS = "!<>-_\\/[]=+*^?#01|";
+
+  // read each banner as lines, then pad all of them to the same size
+  var frames = banners.map(function (el) {
+    return el.textContent.replace(/\n+$/, "").split("\n");
+  });
+  var rows = Math.max.apply(null, frames.map(function (f) { return f.length; }));
+  var cols = Math.max.apply(null, frames.map(function (f) {
+    return Math.max.apply(null, f.map(function (l) { return l.length; }));
+  }));
+  frames = frames.map(function (f) {
+    while (f.length < rows) f.push("");
+    return f.map(function (l) { return l.padEnd(cols, " "); });
+  });
+  var labels = banners.map(function (el) { return el.getAttribute("aria-label"); });
+
+  // show the first banner only; the others become frames
+  var display = banners[0];
+  banners.slice(1).forEach(function (el) { el.hidden = true; });
+
+  var current = 0;
+  var effectCount = 0;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function render(lines) {
+    display.textContent = lines.join("\n");
+  }
+
+  // replace the banner one line at a time, top to bottom
+  function transitionLines(from, to, done) {
+    var out = from.slice();
+    var i = 0;
+    (function step() {
+      out[i] = to[i];
+      render(out);
+      i++;
+      if (i < to.length) setTimeout(step, 90);
+      else done();
+    })();
+  }
+
+  // characters scramble, then settle into the new banner
+  function transitionGlitch(from, to, done) {
+    var steps = 14;
+    var step = 0;
+    (function tick() {
+      step++;
+      var progress = step / steps;
+      var out = to.map(function (line, r) {
+        var src = from[r];
+        var res = "";
+        for (var c = 0; c < line.length; c++) {
+          var a = src[c];
+          var b = line[c];
+          if (Math.random() < progress) {
+            res += b;
+          } else if ((a !== " " || b !== " ") && Math.random() < 0.5) {
+            res += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+          } else {
+            res += a;
+          }
+        }
+        return res;
+      });
+      render(out);
+      if (step < steps) setTimeout(tick, 50);
+      else { render(to); done(); }
+    })();
+  }
+
+  function next() {
+    // don't animate when the tab is in the background
+    if (document.hidden) { schedule(); return; }
+
+    var target = (current + 1) % frames.length;
+    function done() {
+      current = target;
+      display.setAttribute("aria-label", labels[target]);
+      schedule();
+    }
+
+    if (reduceMotion) { render(frames[target]); done(); return; }
+
+    var effect = EFFECT === "alternate"
+      ? (effectCount++ % 2 === 0 ? "glitch" : "lines")
+      : EFFECT;
+    (effect === "lines" ? transitionLines : transitionGlitch)(frames[current], frames[target], done);
+  }
+
+  function schedule() {
+    setTimeout(next, INTERVAL);
+  }
+
+  render(frames[0]);
+  schedule();
+})();
+</script>
