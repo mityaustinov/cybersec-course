@@ -2,7 +2,23 @@
 
 ## x. Why to use a feed reader (and RSS/Atom)?
 
-Couldn't you just browse to each website? (This task does not require tests with a computer. Find suitable sources yourself if needed.).
+A feed reader is a convenient way to follow different sources in one place. A person who systematically reads several different sources has to visit all of them regularly, for example daily, and pick out interesting articles or important announcements. A feed reader solves this problem. It checks the feeds a user is subscribed to and removes the need to visit each site in the browser whenever something new is published. It also lets the user read without being distracted by advertisements or unimportant content. 
+
+From a cyber security point of view, feeds like [Unit 42](https://unit42.paloaltonetworks.com) provide up-to-date information about recently found vulnerabilities, which can be very important for those who need to be informed as soon as possible.
+
+Some feeds publish whole articles, which allows reading offline, during a flight for example.
+
+RSS and Atom don't necessarily require a feed reader. A feed can even be read in the terminal, though it isn't very convenient, since the output is raw XML:
+
+```bash
+curl -L https://www.schneier.com/feed/
+```
+
+For the terminal, dedicated software such as [Newsboat](https://newsboat.org/) works better.
+
+A feed reader is the software, while RSS and Atom are standardized formats used to publish a feed. News or update feeds from an organization can also be delivered through this channel.
+
+In short, feed readers save time and help you focus on what matters.
 
 ## y. Osuuspankkikeskus port scan KKO:2003:36 
 
