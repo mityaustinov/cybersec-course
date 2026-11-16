@@ -22,12 +22,27 @@ In short, feed readers save time and help you focus on what matters.
 
 ## y. Osuuspankkikeskus port scan KKO:2003:36 
 
-Supreme court of Finland, case Osuuspankkikeskus port scan KKO:2003:36. Have a brief look, summarize the key thing in a couple of bullets or sentences. It's in Finnish, but Firefox has offline machine translation from Finnish to English. (This task does not require tests with a computer. This task does not require thorough legal analysis of the case.)
+This case shows how important it is to understand the possible consequences of actions taken online, whether the intentions behind them are good or bad.
 
-## a. Install a feed reader
+A 17-year-old computer enthusiast attempted to gain access to the network of Osuuspankkikeskus-OPK. He used a specialised program to perform a port scan in order to:
+
+* scan the organisation's network for open proxy servers;
+* find a way to connect to the internet through those servers;
+* conceal the real origin of his connection.
+
+The attempt did not get through the organisation's firewall, but the case still offers several important lessons:
+
+* An unsuccessful intrusion attempt can still be a crime.
+* Harm does not require data to be destroyed. Having to review and strengthen security systems is itself a cost to the organisation.
+* Technical expertise can increase responsibility.
+* Good intentions, or the lack of a specific target, do not necessarily provide a defence.
+
+The main takeaway of KKO:2003:36 is that attempting to gain unauthorised access to a protected computer system can create both criminal and financial liability, even when the attempt fails and no data is compromised. The court recognised that an attack can generate real costs for an organisation, independently of any data breach.
+
+
+## a&ndash;e. Reader and feeds
 Show that it can read a feed (RSS or Atom). Include a screenshot of this. You can use any feed reader you like, and you can install the feed reader in your host OS if you like.
 
-## b&ndash;e. Feeds
 b)Add the feed for Krebs. https://krebsonsecurity.com/feed/
 c) Add a feed for Schneier on Security. Find the blog, and locate the feed.
 d) Find and add two more security related feeds. Explain how you found them, and why you chose them.
@@ -46,11 +61,12 @@ Analyze and explain the results
 Do not scan random computers.
 
 ## Voluntary bonuses
-###g. Identify a port scan against Apache
+
+### g. Identify a port scan against Apache
 
 Voluntary bonus, a bit hard: Identify a port scan against Apache on the host being scanned, e.g. in logs. Perform the test against "localhost" address and disconnect the internet while port scanning.
 
-## Modify nmap scan
+### h. Modify nmap scan
 Voluntary bonus, a bit hard: Modify nmap scan so that it cannot be detected by the method you found above.
 
 
@@ -97,7 +113,5 @@ View HTML source code, search for "rss", "atom", "xml", "alternate"
 
 ## References
 
-* Heinonen, J. n.d.: [How to Install Linux to Virtualbox?](https://github.com/johannaheinonen/johanna-test-repo/blob/main/module_1.md) GitHub repository johanna-test-repo.
-* Karvinen, T. 2020: [Command Line Basics Revisited](https://terokarvinen.com/2020/command-line-basics-revisited/).
-* Karvinen, T. 2022: [Cracking Passwords with Hashcat](https://terokarvinen.com/2022/cracking-passwords-with-hashcat/).
-* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h3 Cyber lab. [https://terokarvinen.com/cyber-security/#h3-cyber-lab](https://terokarvinen.com/cyber-security/#h3-cyber-lab).
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h4. Accessed 16.11.2026. [https://terokarvinen.com/cyber-security/#h4](https://terokarvinen.com/cyber-security/).
+* Korkein oikeus. 2003. KKO:2003:36. [Precedent, Supreme Court of Finland]. Accessed 16.11.2026. [https://www.finlex.fi/en/case-law/supreme-court/precedents/2003/36](https://www.finlex.fi/en/case-law/supreme-court/precedents/2003/36).
