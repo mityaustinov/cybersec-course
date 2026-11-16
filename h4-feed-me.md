@@ -2,7 +2,7 @@
 
 ## x. Why to use a feed reader (and RSS/Atom)?
 
-A feed reader is a convenient way to follow different sources in one place. A person who systematically reads several different sources has to visit all of them regularly, for example daily, and pick out interesting articles or important announcements. A feed reader solves this problem. It checks the feeds a user is subscribed to and removes the need to visit each site in the browser whenever something new is published. It also lets the user read without being distracted by advertisements or unimportant content. 
+A feed reader is a convenient way to follow different sources in one place. A person who systematically reads several different sources has to visit all of them regularly, for example daily, and pick out interesting articles or important announcements. A feed reader solves this problem. It checks the feeds a user is subscribed to and removes the need to visit each site in the browser whenever something new is published. It also lets the user read without being distracted by advertisements or unimportant content. In comparison to social media user can decide what can be there in their feed and not algorithms. 
 
 From a cyber security point of view, feeds like [Unit 42](https://unit42.paloaltonetworks.com) provide up-to-date information about recently found vulnerabilities, which can be very important for those who need to be informed as soon as possible.
 
@@ -41,75 +41,37 @@ The main takeaway of KKO:2003:36 is that attempting to gain unauthorised access 
 
 
 ## a&ndash;e. Reader and feeds
-Show that it can read a feed (RSS or Atom). Include a screenshot of this. You can use any feed reader you like, and you can install the feed reader in your host OS if you like.
 
-b)Add the feed for Krebs. https://krebsonsecurity.com/feed/
-c) Add a feed for Schneier on Security. Find the blog, and locate the feed.
-d) Find and add two more security related feeds. Explain how you found them, and why you chose them.
-e) Follow security feeds for a while. What did you learn? What are the benefits and downsides of following feeds with a reader, compared to some other methods of following cyber security scene?
+I have previously, as a [voluntary task](h2-scene#feed-reader) already installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds.
+
+<img src="assets/images/netnewswire2.png" alt="NetNewsWire interface" width="800" />
+
+*Figure 1. NetNewsWire interface with list of subscriptions and opened article.*
+
+* [Krebs on Security](https://krebsonsecurity.com/feed/) (Fig. 1)
+* [Schneier on Security](https://www.schneier.com/feed/) (Fig. 1)
+* I'm also subscribed for several other feeds:
+	* [DarknetDiaries](https://podcast.darknetdiaries.com/) I follow the podcast already for six years now, but it is more convenient to learn about a new episode this way than check, for example in Spotify. I searched for "darknet diaries RSS feed".
+	* [Unit 42](https://unit42.paloaltonetworks.com/feed/) Recent updates on cyber security threats. I simply added `/feed` to the address I knew. 
+	* [NextJS Release Notes](https://github.com/vercel/next.js/releases.atom) and [React Release Notes](https://github.com/react/react/releases.atom) These are important, because I work a lot with ReactJS and NextJS and sometimes it is important to learn quickly, that a new version has been released. GitHub provides such feeds for public repositories.
+ 
+As I mentioned before, I started using feed reader a while ago. I noticed that my daily "tech news" routine became much more efficient. I simply watch through the feed and as before decide what to read more thoroughly, but now it takes less time. However, there are downsides. Sometimes it can be too much information even to quickly scroll through. Not every source that I typically follow provides RSS/Atom feed. Some entries are very brief about the content or have no summary at all and I need to check the site if that article is something that I really need to read. Nevertheless, the reader gives a very nice experience, because I'm less distracted.
 
 
 ## f. Port scan
 
-How can criminals know what services your employer has? Disconnect your computer from the internet while doing the test (after you have installed the required software). Do the test inside your virtual machine.
-Install nmap port scanner
-Disconnect from the internet. Show that 'ping 8.8.8.8' stops working when internet is disconnected.
-Port scan your own computer. Use "localhost" as the address.
-Install a daemon
-Port scan again
-Analyze and explain the results
-Do not scan random computers.
+
 
 ## Voluntary bonuses
 
 ### g. Identify a port scan against Apache
 
-Voluntary bonus, a bit hard: Identify a port scan against Apache on the host being scanned, e.g. in logs. Perform the test against "localhost" address and disconnect the internet while port scanning.
+
 
 ### h. Modify nmap scan
-Voluntary bonus, a bit hard: Modify nmap scan so that it cannot be detected by the method you found above.
 
 
-Tips:
-Port scan (notes from memory)
-sudo apt-get update; sudo apt-get -y install nmap
-ping 1.1.1.1 # quit with Ctrl-C
-sudo nmap -A -v localhost
-sudo apt-get install apache2; sudo systemctl start apache2;
-Do not scan computers you don't own. Disconnect computer from the internet while port scanning.
 
-Feed readers
-Thunderbird is the easiest choice
-Brief is a Firefox extension, maybe it's also available for Chromium.
-Newsboat 'nb' is a fast and versatile tool with proper APIs. It has some learning curve, it's Linux only and uses TUI (text user interface).
-There are many other feed readers, too.
-Thunderbird. Easy to install, simple graphical user interface, established project. But it's an email app first, feed reader third.
-Install: Linux 'sudo apt-get update; sudo apt-get -y install thunderbird'. Windows and Mac: download installer. They even have an Android version.
-
-Add Feed Account
-Click Alt to show menu bars.
-File: New: Feed Account.
-Add a Feed (RSS/Atom for specific website)
-"Blogs & News Feeds" is shown on Folder pane "All Folders" on the left.
-Right click "Blogs & News Feeds" for context menu: Subscribe... (Same as "Manage feed subscriptions")
-Feed URL: https://terokarvinen.com/index.xml
-Click "Add" on the left. Only click blue "Close" after you have clicked "Add" on the left.
-"Tero Karvinen..." feed appears on folder pane "All Folders", inside "Blogs & News Feeds". You can see latest articles from the website.
-River of News
-"River of news" means a single view that shows posts from all your subscriptions, latest first. It's quite an obvious feature of a feed reader, but in Thunderbird you have to set it up yourself.
-Right click "Blogs & News Feeds" for context menu: Search Messages...
-"Age in Days" "is less than" "30"
-Save search as folder (button)
-Name: "month". Create.
-Close the search modal.
-"month" appears in folder pane "All Folders", in "Blogs & News Feeds". You can see latest posts from all of the feedds you follow. It's even more interesting if you follow more than one feed.
-Finding feeds
-Website often has a button for RSS feed
-Search the page for text: "RSS", "Atom", "Feed", "Subscribe"
-Check for RSS icon, a dot with two concentric arcs
-Try common URLs, like /feed/ - https://example.com/feed/
-Use an addon to detect feeds, like RSSPreview
-View HTML source code, search for "rss", "atom", "xml", "alternate"
 
 ## References
 
