@@ -8,7 +8,7 @@ From a cyber security point of view, feeds like [Unit 42](https://unit42.paloalt
 
 Some feeds publish whole articles, which allows reading offline, during a flight for example.
 
-RSS and Atom don't necessarily require a feed reader. A feed can even be read in the terminal, though it isn't very convenient, since the output is raw XML:
+RSS and Atom don't necessarily require a feed reader. A feed can even be read in the terminal, though it isn't convenient, since the output is raw XML:
 
 ```bash
 curl -L https://www.schneier.com/feed/
@@ -60,17 +60,123 @@ As I mentioned before, I started using feed reader a while ago. I noticed that m
 
 ## f. Port scan
 
+For lab purposes I'm using a VM with Kali, so there was no need to install `nmap`, since it is pre-installed in Kali.
 
+<img src="assets/images/nmap-0.png" alt="Kali dashboard shows nmap found already installed in system" width="640" />
+
+*Figure 2. Kali dashboard shows nmap found already installed in system.*
+
+With that confirmed I ran the `ping 8.8.8.8` command. Google's primary public DNS is located on that IP address, and as Figure 3 shows, my client sent and received packets successfully.
+
+<img src="assets/images/nmap-1.png" alt="Pinging 8.8.8.8" width="650" />
+
+*Figure 3. Pinging 8.8.8.8.*
+
+After that I turned off the Internet connection on the Kali VM and ran `ping 8.8.8.8` again. The network was unreachable this time, as seen on Figure 4.
+
+<img src="assets/images/nmap-2.png" alt="Network is unreachable" width="650" />
+
+*Figure 4. Network is unreachable.*
+
+After that I ran `sudo nmap -A -v localhost` for the first time and scanned the ports.
+
+<img src="assets/images/nmap-3.png" alt="nmap port scanning output" width="650" />
+
+*Figure 5. nmap port scanning output.*
+
+Among other lines in the output, some of the most informative for this case were these:
+
+```bash
+All 1000 scanned ports on localhost (127.0.0.1) are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+```
+
+This means that `nmap` scanned 1000 ports and they were all closed.
+
+I then installed a daemon, in this case `openssh-server`, and started it.
+
+```bash
+sudo apt-get install openssh-server
+sudo systemctl start ssh
+```
+
+<img src="assets/images/nmap-4.png" alt="Installing openssh-server" width="650" />
+
+*Figure 6. Installing openssh-server.*
+
+And ran the port scan again. This time the output was different.
+
+<img src="assets/images/nmap-5.png" alt="Port 22 is open" width="650" />
+
+*Figure 7. Port 22 is open.*
+
+`nmap` discovered an open port:
+
+```bash
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 10.6p1 Debian 1 (protocol 2.0)
+```
+
+Next I installed the Apache server and started it as well.
+
+```bash
+sudo apt-get install apache2
+sudo systemctl start apache2
+```
+
+Scanning the ports this time showed another change in the output, as seen on Figure 8. Port 80 now appears as open, running `Apache httpd 2.4.68`.
+
+<img src="assets/images/nmap-6.png" alt="Ports 22 and 80 are open" width="650" />
+
+*Figure 8. Ports 22 and 80 are open.*
 
 ## Voluntary bonuses
 
 ### g. Identify a port scan against Apache
 
+Next, I opened another terminal window and read the Apache access log with this command:
 
+```bash
+sudo grep "127.0.0.1" /var/log/apache2/access.log | tail
+```
+<img src="assets/images/nmap-7.png" alt="Reaching Apache access log" width="650" />
+
+*Figure 9. Reaching Apache access log.*
+
+Since I read the log with `sudo`, I have the rights to access it. The latest entries in the log showed that Apache was accessed by `nmap`.
+
+```bash
+127.0.0.1 - - [16/Nov/2026:16:49:41 -0500] "OPTIONS / HTTP/1.1" 200 181 "-" "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)"
+```
+
+This means that Apache recorded that the Nmap scanner, and not a regular browser, had tried to access it. The `-A` scan runs service and script detection, which actually sends HTTP requests to Apache, and those requests are what the log captured. In other words, this is the proof of my previous scan.
+
+<img src="assets/images/nmap-8.png" alt="Nmap requests logged in Apache log" width="650" />
+
+*Figure 10. Nmap requests logged in Apache log.*
 
 ### h. Modify nmap scan
 
+All previous scans were performed in an open manner. This time I ran the scan with a different parameter:
 
+```bash
+sudo nmap -sS localhost
+```
+
+This is a "stealth" scan. Its output is shorter and takes less time, because in this case `nmap` didn't communicate with the daemons, as it did in the previous scans.
+
+<img src="assets/images/nmap-9.png" alt="The output of nmap scan with stealth parameter" width="650" />
+
+*Figure 11. The output of nmap scan with stealth parameter.*
+
+Reading the Apache log again showed that Apache didn't log the last scan. The most recent entries were the same as several minutes earlier.
+
+<img src="assets/images/nmap-10.png" alt="Apache log remained the same" width="650" />
+
+*Figure 12. Apache log remained the same.*
+
+What happened is that with the `-sS` parameter, `nmap` reached the target but never completed a connection and stopped it, leaving no traces in Apache's log. 
 
 
 ## References
