@@ -42,7 +42,7 @@ The main takeaway of KKO:2003:36 is that attempting to gain unauthorised access 
 
 ## a&ndash;e. Reader and feeds
 
-I have previously, as a [voluntary task](h2-scene#feed-reader) already installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds.
+I have previously, as a [voluntary task](https://mityaustinov.github.io/cybersec-course/h2-scene#feed-reader) already installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds.
 
 <img src="assets/images/netnewswire2.png" alt="NetNewsWire interface" width="800" />
 
