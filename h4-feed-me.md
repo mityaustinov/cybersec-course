@@ -176,7 +176,7 @@ Reading the Apache log again showed that Apache didn't log the last scan. The mo
 
 *Figure 12. Apache log remained the same.*
 
-What happened is that with the `-sS` parameter, `nmap` reached the target but never completed a connection and stopped it, leaving no traces in Apache's log. 
+What happened is that with the `-sS` parameter, `nmap` reached the target but never completed a connection and stopped it, leaving no traces in Apache's log. Even though this scan does not attempt OS detection, it still disclosed which ports were open and which protocol they used.
 
 
 ## References
