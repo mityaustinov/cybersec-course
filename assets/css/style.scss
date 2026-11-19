@@ -181,3 +181,19 @@ body.home .site-footer {
   caret-color: var(--term-green);
   font: inherit;
 }
+
+.markdown-body .heading-anchor {
+  color: #888;
+  text-decoration: none;
+  opacity: 0.35;
+  transition: opacity 0.15s;
+}
+
+.markdown-body :is(h1, h2, h3, h4, h5, h6):hover .heading-anchor,
+.markdown-body .heading-anchor:focus {
+  opacity: 1;
+}
+
+.markdown-body :is(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: 1rem;
+}
