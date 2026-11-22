@@ -75,9 +75,13 @@ Sometimes, messages will be encrypted with the private key and decrypted with th
 
 #### Chapter 2 - Protocol Building Blocks, sections
 
+The chapter focuses on public-key cryptography. A symmetric algorithm is like a safe with one combination: whoever knows it can both lock and unlock, but both people must share that secret first. In 1976, Diffie and Hellman introduced a system with two different keys, one public, one private. It works like a mailbox: anyone can drop mail in through the slot (encrypt with the public key), but only the owner with the key can take mail out (decrypt with the private key). You can't work out the private key from the public one.
 
+This solves the biggest problem of symmetric encryption: agreeing on a secret key without meeting first. Alice just looks at Bob's public key, encrypts, and sends. An eavesdropper (Eve) who sees the public key and the encrypted message still can't read it. In a network, everyone publishes their public key, so you can message anyone, like regular mail.
 
+The challenge with public-key crypto is that it isn't used to encrypt actual messages, because it's very slow (symmetric is 1000+ times faster) and vulnerable to guessing attacks when the possible messages are few.
 
+The solution for the challenge are hybrid systems which use use both. Public-key crypto securely shares a one-time session key, then a fast symmetric algorithm uses that key to encrypt the conversation. This is also safer because the session key is created when needed and destroyed after, so no long-lived key sits around to be stolen, and the private key is only used briefly.
 
 ### Karvinen 2023: PGP - Send Encrypted and Signed Message - gpg
 
