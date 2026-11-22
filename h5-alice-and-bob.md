@@ -85,6 +85,19 @@ The solution for the challenge are hybrid systems which use use both. Public-key
 
 ### Karvinen 2023: PGP - Send Encrypted and Signed Message - gpg
 
+The material is a hands-on tutorial on how to sen private and verified messages, using PGP with the gpg command-line tool. Alice sends a secret message to Tero. Encryption keeps others from reading it; signing proves it really came from Alice and wasn't changed. Alice is simulated with a separate folder to make practice easy on one computer.
+
+Each person has a public key (shared freely) and a private key (secret). They're used in opposite directions:
+
+* Alice encrypts with Tero's public key, and only Tero's private key can open it.
+* *Alice signs with her own private key, and Tero verifies with Alice's public key to confirm it's her.
+
+**Setting up trust.** The two exchange public keys and check that each key really belongs to the right person by comparing its fingerprint over a trusted channel (a phone call). The keys can travel over the untrusted internet; only the fingerprint check needs to be trustworthy.
+
+**Sending.** Alice runs one command that encrypts and signs her message, producing a block of plain text safe to paste anywhere. Tero decrypts it with his private key, and gpg confirms "Good signature from Alice."
+
+PGP lets two people communicate privately and prove their identities over an untrusted network, as long as they verify each other's key fingerprints once at the start.
+
 ## a. Pubkey today
 
 ## b. Encrypt a message
