@@ -56,9 +56,10 @@ I have installed Linux, [Kali](https://mityaustinov.github.io/cybersec-course/h1
 
 First I identified hash type
 
-<img src="assets/images//hashid.png" alt="Hash type identification" width="800" />
-
-*Figure 1. Hash type identification*
+<figure>
+  <img src="assets/images//hashid.png" alt="Hash type identification" width="800" />
+  <figcaption><em>Figure 1. Hash type identification</em></figcaption>
+</figure>
 
 Then I run `hashcat` to find a match in `rockyou` dictionary and store the result in `solved` text file. 
 
@@ -66,9 +67,10 @@ Then I run `hashcat` to find a match in `rockyou` dictionary and store the resul
 hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt -o solved
 ```
 
-<img src="assets/images//hashcat.png" alt="Password cracking and showing the result" width="800" />
-
-*Figure 2. Password cracking and showing the result*
+<figure>
+  <img src="assets/images//hashcat.png" alt="Password cracking and showing the result" width="800" />
+  <figcaption><em>Figure 2. Password cracking and showing the result</em></figcaption>
+</figure>
 
 Already cracked matches are also stored in hashcat's `.potfile`. Running hashcat on the same hash again won't crack it. To view the result the command must be ran with `--show` parameter.
 
@@ -78,9 +80,10 @@ hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt --show
 
 If for some reason you want all previous cracks cleared, you can delete the `.potfile`
 
-<img src="assets/images//clear.png" alt="Clearing hashcat .potfile" width="800" />
-
-*Figure 3. Clearing hashcat .potfile*
+<figure>
+  <img src="assets/images//clear.png" alt="Clearing hashcat .potfile" width="800" />
+  <figcaption><em>Figure 3. Clearing hashcat .potfile</em></figcaption>
+</figure>
 
 `6b1628b016dff46e6fa35684be6acc96:summer` It's a pretty weak password.
 
