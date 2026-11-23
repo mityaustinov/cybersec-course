@@ -102,23 +102,64 @@ PGP lets two people communicate privately and prove their identities over an unt
 
 One of my most frequent daily uses is regular internet browsing. Each time I visit a website over HTTPS, my browser receives the website's public key inside its certificate. The website (the server) keeps the matching private key secret. My browser uses the public key to verify the server and to securely agree on a shared session key. From that moment public key is not used anymore in this session, as both sides use a faster shared key to encrypt everything in both directions, so a malicious actor on the network can't read my password or bank details. So the public key does the setup, the server's private key proves its identity, and the shared symmetric key does the actual work during the session. [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/)
 
-## b. Encrypt a message
+## b. Encrypt and decrypt a message
 
-## c. Eve and Mallory
+Following tutorial steps I created key pairs and encrypted and decrypted and read the message sent by Alice. This last step of the process can be seen on Figure 1.
 
-## d. Password management
+<figure>
+  <img src="assets/images/gpg.png" alt="Good signature from Alice" width="650" />
+  <figcaption><em>Figure 1. Good signature from Alice.</em></figcaption>
+</figure>
 
-## e. Refer to sources
+Good signature result shows that the process was done correctly.
 
-## f. Details of PGP
+### The process
 
-## g. Cryptopals
+* During the setup Mitya (in my case) and Alice generate a public and private keys (keypair). They exchange public keys and verify fingerprints over a trusted channel.
+* Then Alice encrypts with Mitya's public key, so only I can read it. She signs with her own private key, so I can confirm it's Alice's.
+* I decrypt with my own private key. I verify the signature with Alice's public key.
+
+### Security evaluation
+
+I tried using PGP with `gpg` myself for the very first time.
+
+It provides:
+
+* Strong encryption. I could see the whole encrypted message but couldn't read it without the right private key.
+* It keeps the message private (encryption) and proves who sent it (signing) fulfilling  Authentication, Integrity and Nonrepudiation principles of cryptography.
+* PGP is a long-established standard, and GPG is open-source, so it's been well checked. Even Linux developers rely on it.
+
+However it has some downsides:
+
+* The private key must stay secret. If someone gets it, they can read user's messages and pretend to be that user.
+* Keys must be verified. The encryption is only safe if a user trust the right public key. Checking the fingerprint is the key step, and it's easy for a beginner to skip, as I did.
+  <figure>
+    <img src="assets/images/gpg-2.png" alt="The result of fingerprint left unchecked." width="650" />
+    <figcaption><em>Figure 2. The result of fingerprint left unchecked.</em></figcaption>
+  </figure>
+* It's easy to make mistakes. Setup took attention, and I got a trust warning by missing a step.
+
+## c. Password management
+
+KeePassXC stores passwords in a database located on a users machine. Browsers can access that database via KeePassXC browser extension
+
+A password manager can help protect a user from several password attacks. There are others, such as Man-in-the-Middle or keylogging, that a password manager can barely protect against, but it can potentially help with the following:
+
+**Dictionary Attack.** A brute force attack using common words, sometimes personal ones like a pet's or child's name, collected into dictionaries. 
+**Credential Stuffing.** Reusing leaked username and password pairs on other accounts, hoping the victim didn't change them. 
+**Brute Force Attack.** Trying huge numbers of password combinations until one works, which quickly cracks simple passwords. 
+**Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop from typing a password in manually.
+
+## d. Details of PGP
+
+## e. Cryptopals
 
 ## References
 
 * Cloudflare: [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/). Cloudflare Learning Center. Read on 23.11.2026.
+* Karvinen, T. 2023: [PGP - Send Encrypted and Signed Message - gpg](https://terokarvinen.com/2023/pgp-encrypt-sign-verify/). Read on 21.11.2026.
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h4. Accessed 21.11.2026. [https://terokarvinen.com/cyber-security/#h4](https://terokarvinen.com/cyber-security/).
+* OneLogin: [Six Types of Password Attacks & How to Stop Them](https://www.onelogin.com/learn/6-types-password-attacks/). OneLogin Learning Hub. Read on 23.11.2026.
 * Schneier, B. 2015: [Applied Cryptography: Protocols, Algorithms and Source Code in C](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/). 20th Anniversary Edition, Wiley. Read on 21.11.2026:
   * Chapter 1 – Foundations, section 1.1 [Terminology](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/08_chap01.html#chap01-sec001) (Sender and Receiver, Messages and Encryption, Algorithms and Keys, Symmetric Algorithms, Public-Key Algorithms).
   * Chapter 2 – Protocol Building Blocks, section 2.5 [Communications Using Public-Key Cryptography](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/10_chap02.html#chap02-sec005).
-* Karvinen, T. 2023: [PGP - Send Encrypted and Signed Message - gpg](https://terokarvinen.com/2023/pgp-encrypt-sign-verify/). Read on 21.11.2026.
-* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h4. Accessed 21.11.2026. [https://terokarvinen.com/cyber-security/#h4](https://terokarvinen.com/cyber-security/).
