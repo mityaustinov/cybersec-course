@@ -104,7 +104,7 @@ One of my most frequent daily uses is regular internet browsing. Each time I vis
 
 ## b. Encrypt and decrypt a message
 
-Following tutorial steps I created key pairs and encrypted and decrypted and read the message sent by Alice. This last step of the process can be seen on Figure 1.
+Following tutorial steps I created key pairs, then encrypted, decrypted, and read the message sent by Alice. This last step of the process can be seen on Figure 1.
 
 <figure>
   <img src="assets/images/gpg.png" alt="Good signature from Alice" width="650" />
@@ -115,8 +115,8 @@ Good signature result shows that the process was done correctly.
 
 ### The process
 
-* During the setup Mitya (in my case) and Alice generate a public and private keys (keypair). They exchange public keys and verify fingerprints over a trusted channel.
-* Then Alice encrypts with Mitya's public key, so only I can read it. She signs with her own private key, so I can confirm it's Alice's.
+* During the setup Mitya (in my case) and Alice generate public and private keys (keypair). They exchange public keys and verify fingerprints over a trusted channel.
+* Then Alice encrypts with Mitya's public key, so only I can read it. She signs with her own private key, so I can confirm it's from Alice.
 * I decrypt with my own private key. I verify the signature with Alice's public key.
 
 ### Security evaluation
@@ -126,13 +126,13 @@ I tried using PGP with `gpg` myself for the very first time.
 It provides:
 
 * Strong encryption. I could see the whole encrypted message but couldn't read it without the right private key.
-* It keeps the message private (encryption) and proves who sent it (signing) fulfilling  Authentication, Integrity and Nonrepudiation principles of cryptography.
+* It keeps the message private (encryption) and proves who sent it (signing), fulfilling authentication, integrity and nonrepudiation principles of cryptography.
 * PGP is a long-established standard, and GPG is open-source, so it's been well checked. Even Linux developers rely on it.
 
 However it has some downsides:
 
 * The private key must stay secret. If someone gets it, they can read user's messages and pretend to be that user.
-* Keys must be verified. The encryption is only safe if a user trust the right public key. Checking the fingerprint is the key step, and it's easy for a beginner to skip, as I did.
+* Keys must be verified. The encryption is only safe if a user trusts the right public key. Checking the fingerprint is the key step, and it's easy for a beginner to skip, as I did.
   <figure>
     <img src="assets/images/gpg-2.png" alt="The result of fingerprint left unchecked." width="650" />
     <figcaption><em>Figure 2. The result of fingerprint left unchecked.</em></figcaption>
@@ -141,14 +141,14 @@ However it has some downsides:
 
 ## c. Password management
 
-KeePassXC stores passwords in a database located on a users machine. Browsers can access that database via KeePassXC browser extension
+KeePassXC stores passwords in a database located on a user's machine. Browsers can access that database via KeePassXC-Browser browser extension.
 
 A password manager can help protect a user from several password attacks. There are others, such as Man-in-the-Middle or keylogging, that a password manager can barely protect against, but it can potentially help with the following:
 
 **Dictionary Attack.** A brute force attack using common words, sometimes personal ones like a pet's or child's name, collected into dictionaries. 
 **Credential Stuffing.** Reusing leaked username and password pairs on other accounts, hoping the victim didn't change them. 
 **Brute Force Attack.** Trying huge numbers of password combinations until one works, which quickly cracks simple passwords. 
-**Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop from typing a password in manually.
+**Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop the user from typing a password in manually.
 
 ## d. Details of PGP
 
