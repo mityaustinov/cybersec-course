@@ -90,21 +90,24 @@ The connections are laid out as in the following example:
 - UTM Virtual machine software was [downloaded and installed](h1-cyber-science.md#installing-linux-on-a-virtual-machine) previously.
 - Created virtual machine using Debian image.
 
-<img src="assets/images//utm-2.png" alt="UTM software with Debian VM details" width="600" />
+<figure>
+  <img src="assets/images//utm-2.png" alt="UTM software with Debian VM details" width="600" />
+  <figcaption><em>Figure 1. UTM software with Debian VM details</em></figcaption>
+</figure>
 
-*Figure 1. UTM software with Debian VM details*
-
-<img src="assets/images//debian.png" alt="Debian desktop with Terminal window opened" width="800" />
-
-*Figure 2. Debian desktop with Terminal window opened*
+<figure>
+  <img src="assets/images//debian.png" alt="Debian desktop with Terminal window opened" width="800" />
+  <figcaption><em>Figure 2. Debian desktop with Terminal window opened</em></figcaption>
+</figure>
 
 ### Feed reader
 
 I have downloaded and installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds. I must admit, surfing through all recent updates became extremely convinient; I have no excuse why I didn't use RSS feed readers before.
 
-<img src="assets/images//netnewswire.png" alt="NetNewsWire interface" width="800" />
-
-*Figure 3. NetNewsWire interface with list of subscriptions.*
+<figure>
+  <img src="assets/images//netnewswire.png" alt="NetNewsWire interface" width="800" />
+  <figcaption><em>Figure 3. NetNewsWire interface with list of subscriptions.</em></figcaption>
+</figure>
 
 ### More content
 
