@@ -19,7 +19,7 @@ Plaintext &rarr; Encryption &rarr; Ciphertext &rarr; Decryption &rarr; Original 
 
 **Sender** (A) is an actor who sends the message. **Receiver** (B) is the one who receives it. Besides that in crypography context Sender is the one who encypts the message and Receiver is who decrypts it.\
 
-Note to self and reader: Alice and Bob are placeholder names used for describing two parties of communication, A nad B.
+Note to self and reader: Alice and Bob are placeholder names used for describing two parties of communication, A and B.
 
 **Messages and Encryption**
 
@@ -90,7 +90,7 @@ The material is a hands-on tutorial on how to sen private and verified messages,
 Each person has a public key (shared freely) and a private key (secret). They're used in opposite directions:
 
 * Alice encrypts with Tero's public key, and only Tero's private key can open it.
-* *Alice signs with her own private key, and Tero verifies with Alice's public key to confirm it's her.
+* Alice signs with her own private key, and Tero verifies with Alice's public key to confirm it's her.
 
 **Setting up trust.** The two exchange public keys and check that each key really belongs to the right person by comparing its fingerprint over a trusted channel (a phone call). The keys can travel over the untrusted internet; only the fingerprint check needs to be trustworthy.
 
@@ -99,6 +99,8 @@ Each person has a public key (shared freely) and a private key (secret). They're
 PGP lets two people communicate privately and prove their identities over an untrusted network, as long as they verify each other's key fingerprints once at the start.
 
 ## a. Pubkey today
+
+One of my most frequent daily uses is regular internet browsing. Each time I visit a website over HTTPS, my browser receives the website's public key inside its certificate. The website (the server) keeps the matching private key secret. My browser uses the public key to verify the server and to securely agree on a shared session key. From that moment public key is not used anymore in this session, as both sides use a faster shared key to encrypt everything in both directions, so a malicious actor on the network can't read my password or bank details. So the public key does the setup, the server's private key proves its identity, and the shared symmetric key does the actual work during the session. [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/)
 
 ## b. Encrypt a message
 
@@ -114,6 +116,7 @@ PGP lets two people communicate privately and prove their identities over an unt
 
 ## References
 
+* Cloudflare: [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/). Cloudflare Learning Center. Read on 23.11.2026.
 * Schneier, B. 2015: [Applied Cryptography: Protocols, Algorithms and Source Code in C](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/). 20th Anniversary Edition, Wiley. Read on 21.11.2026:
   * Chapter 1 – Foundations, section 1.1 [Terminology](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/08_chap01.html#chap01-sec001) (Sender and Receiver, Messages and Encryption, Algorithms and Keys, Symmetric Algorithms, Public-Key Algorithms).
   * Chapter 2 – Protocol Building Blocks, section 2.5 [Communications Using Public-Key Cryptography](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/10_chap02.html#chap02-sec005).
