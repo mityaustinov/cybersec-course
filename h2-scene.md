@@ -100,7 +100,7 @@ The connections are laid out as in the following example:
   <figcaption><em>Figure 2. Debian desktop with Terminal window opened</em></figcaption>
 </figure>
 
-### Feed reader [#](#feed-reader)
+### Feed reader
 
 I have downloaded and installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds. I must admit, surfing through all recent updates became extremely convinient; I have no excuse why I didn't use RSS feed readers before.
 
