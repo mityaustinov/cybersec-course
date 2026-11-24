@@ -17,9 +17,9 @@ Plaintext &rarr; Encryption &rarr; Ciphertext &rarr; Decryption &rarr; Original 
 
 **Sender and receiver**
 
-**Sender** (A) is an actor who sends the message. **Receiver** (B) is the one who receives it. Besides that in crypography context Sender is the one who encypts the message and Receiver is who decrypts it.\
+**Sender** (A) is an actor who sends the message. **Receiver** (B) is the one who receives it. Besides that in crypography context Sender is the one who encypts the message and Receiver is who decrypts it.
 
-Note to self and reader: Alice and Bob are placeholder names used for describing two parties of communication, A and B.
+Alice and Bob are placeholder names used for describing two parties of communication, A and B.
 
 **Messages and Encryption**
 
