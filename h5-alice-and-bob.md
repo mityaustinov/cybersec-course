@@ -278,7 +278,7 @@ Coming soon.
 
 * Cloudflare: [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/). Cloudflare Learning Center. Read on 23.11.2026.
 * Karvinen, T. 2023: [PGP - Send Encrypted and Signed Message - gpg](https://terokarvinen.com/2023/pgp-encrypt-sign-verify/). Read on 21.11.2026.
-* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h4. Accessed 21.11.2026. [https://terokarvinen.com/cyber-security/#h4](https://terokarvinen.com/cyber-security/).
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h5. Accessed 21.11.2026. [https://terokarvinen.com/cyber-security/#h5-alice-and-bob](https://terokarvinen.com/cyber-security/).
 * OneLogin: [Six Types of Password Attacks & How to Stop Them](https://www.onelogin.com/learn/6-types-password-attacks/). OneLogin Learning Hub. Read on 23.11.2026.
 * Schneier, B. 2015: [Applied Cryptography: Protocols, Algorithms and Source Code in C](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/). 20th Anniversary Edition, Wiley. Read on 21.11.2026:
   * Chapter 1 – Foundations, section 1.1 [Terminology](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/08_chap01.html#chap01-sec001) (Sender and Receiver, Messages and Encryption, Algorithms and Keys, Symmetric Algorithms, Public-Key Algorithms).
