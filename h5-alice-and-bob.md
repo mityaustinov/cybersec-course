@@ -141,7 +141,21 @@ However it has some downsides:
 
 ## c. Password management
 
-KeePassXC stores passwords in a database located on a user's machine. Browsers can access that database via KeePassXC-Browser browser extension.
+KeePassXC stores passwords in an encrypted database on the user's machine. The KeePassXC-Browser extension connects the browser to the KeePassXC app, which fills in saved credentials.
+
+Below is an example of using the KeePassXC-Browser extension. This entry was added to the database manually, so on my first visit to the site, KeePassXC asked me to allow the extension to access the entry whose URL matches the site I'm visiting.
+
+<figure>
+  <img src="assets/images/keepassxc-1.png" alt="KeePassXC is requesting access" width="645" />
+  <figcaption><em>Figure 3. KeePassXC-Browse is requesting access to CyberSec app entry in KeePassXC database.</em></figcaption>
+</figure>
+
+Once access is granted, clicking the KeePassXC icon in the username field fills the credentials into the login form automatically.
+
+<figure>
+  <img src="assets/images/keepassxc-2.png" alt="Filling in credentials" width="410" />
+  <figcaption><em>Figure 4. Filling in credentials.</em></figcaption>
+</figure>
 
 A password manager can help protect a user from several password attacks. There are others, such as Man-in-the-Middle or keylogging, that a password manager can barely protect against, but it can potentially help with the following:
 
@@ -155,109 +169,110 @@ I ran the whole PGP tutorial again but in a slightly different manner: I have cr
 
 <figure>
   <img src="assets/images/gpg/1.png" alt="Update and installation of pgp" width="650" />
-  <figcaption><em>Figure 4. Update and installation of pgp.</em></figcaption>
+  <figcaption><em>Figure 5. Update and installation of pgp.</em></figcaption>
 </figure>
 
 Create user directories and `chmod 700` makes them private.
 <figure>
   <img src="assets/images/gpg/2.png" alt="Alice and Bob directories created and rights set" width="650" />
-  <figcaption><em>Figure 5. Alice and Bob directories created and rights set.</em></figcaption>
+  <figcaption><em>Figure 6. Alice and Bob directories created and rights set.</em></figcaption>
 </figure>
 
 Enter real name `Alice`, email `alice@example.com.demo`, confirm with `O`, passphrase skipped for this training purpose.
 <figure>
   <img src="assets/images/gpg/3.png" alt="Keypair for Alice" width="650" />
-  <figcaption><em>Figure 6. Keypair for Alice.</em></figcaption>
+  <figcaption><em>Figure 7. Keypair for Alice.</em></figcaption>
 </figure>
 
 Enter real name `Bob`, email `bob@example.com.demo`, confirm with `O`, passphrase skipped for this training purpose.
 <figure>
   <img src="assets/images/gpg/4.png" alt="Keypair for Bob" width="650" />
-  <figcaption><em>Figure 7. Keypair for Bob.</em></figcaption>
+  <figcaption><em>Figure 8. Keypair for Bob.</em></figcaption>
 </figure>
 
 Check that each has its own key.
 <figure>
   <img src="assets/images/gpg/5.png" alt="Keys check" width="650" />
-  <figcaption><em>Figure 8. Keys check.</em></figcaption>
+  <figcaption><em>Figure 9. Keys check.</em></figcaption>
 </figure>
 
 Export both public keys
 <figure>
   <img src="assets/images/gpg/6.png" alt="Export public keys" width="650" />
-  <figcaption><em>Figure 9. Export public keys.</em></figcaption>
+  <figcaption><em>Figure 10. Export public keys.</em></figcaption>
 </figure>
 
 Import each other's public key
 <figure>
   <img src="assets/images/gpg/7.png" alt="Import public keys" width="650" />
-  <figcaption><em>Figure 10. Import public keys.</em></figcaption>
+  <figcaption><em>Figure 11. Import public keys.</em></figcaption>
 </figure>
 
 Verify fingerprints and sign each other's keys
 <figure>
   <img src="assets/images/gpg/8.png" alt="Verify fingerprints from Alice's side" width="650" />
-  <figcaption><em>Figure 11. Verify fingerprints from Alice's side.</em></figcaption>
+  <figcaption><em>Figure 12. Verify fingerprints from Alice's side.</em></figcaption>
 </figure>
 
 <figure>
   <img src="assets/images/gpg/9.png" alt="Alice signs Bob's key" width="650" />
-  <figcaption><em>Figure 12. Alice signs Bob's key.</em></figcaption>
+  <figcaption><em>Figure 13. Alice signs Bob's key.</em></figcaption>
 </figure>
 
 <figure>
   <img src="assets/images/gpg/10.png" alt="Verify fingerprints from Bob's side" width="650" />
-  <figcaption><em>Figure 13. Verify fingerprints from Bob's side.</em></figcaption>
+  <figcaption><em>Figure 14. Verify fingerprints from Bob's side.</em></figcaption>
 </figure>
 
 <figure>
   <img src="assets/images/gpg/11.png" alt="Bob signs Alice's key" width="650" />
-  <figcaption><em>Figure 14. Bob signs Alice's key.</em></figcaption>
+  <figcaption><em>Figure 15. Bob signs Alice's key.</em></figcaption>
 </figure>
 
 Check the trust.
 <figure>
   <img src="assets/images/gpg/12.png" alt="Trust check" width="650" />
-  <figcaption><em>Figure 15. Trust check.</em></figcaption>
+  <figcaption><em>Figure 16. Trust check.</em></figcaption>
 </figure>
 
 Alice creates a message file.
 <figure>
   <img src="assets/images/gpg/13.png" alt="Create a message file" width="650" />
-  <figcaption><em>Figure 16. Create a message file.</em></figcaption>
+  <figcaption><em>Figure 17. Create a message file.</em></figcaption>
 </figure>
 
 Alice encrypts the message file.
 <figure>
   <img src="assets/images/gpg/14.png" alt="Encrypt the file" width="650" />
-  <figcaption><em>Figure 17. Encrypt the file.</em></figcaption>
+  <figcaption><em>Figure 18. Encrypt the file.</em></figcaption>
 </figure>
 
 Result check shows that message is encrypted.
 <figure>
   <img src="assets/images/gpg/15.png" alt="Encryption result" width="650" />
-  <figcaption><em>Figure 18. Encryption result.</em></figcaption>
+  <figcaption><em>Figure 19. Encryption result.</em></figcaption>
 </figure>
 
 Alice "sends" (copies) the message to Bob.
 <figure>
   <img src="assets/images/gpg/16.png" alt="Copy message file" width="650" />
-  <figcaption><em>Figure 19. Copy message file.</em></figcaption>
+  <figcaption><em>Figure 20. Copy message file.</em></figcaption>
 </figure>
 
 If Bob tries to open the message right away, he can't read it, since it still is encrypted.
 <figure>
   <img src="assets/images/gpg/17.png" alt="Encrypted message" width="650" />
-  <figcaption><em>Figure 20. Encrypted message.</em></figcaption>
+  <figcaption><em>Figure 21. Encrypted message.</em></figcaption>
 </figure>
 
 Bob decrypts and verifies.
 <figure>
   <img src="assets/images/gpg/18.png" alt="Decrypted message" width="650" />
-  <figcaption><em>Figure 21. Decrypted message.</em></figcaption>
+  <figcaption><em>Figure 22. Decrypted message.</em></figcaption>
 </figure>
 
 ## e. Cryptopals
+Coming soon.
 
 ## References
 
