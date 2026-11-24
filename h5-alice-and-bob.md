@@ -145,10 +145,10 @@ KeePassXC stores passwords in a database located on a user's machine. Browsers c
 
 A password manager can help protect a user from several password attacks. There are others, such as Man-in-the-Middle or keylogging, that a password manager can barely protect against, but it can potentially help with the following:
 
-**Dictionary Attack.** A brute force attack using common words, sometimes personal ones like a pet's or child's name, collected into dictionaries. 
-**Credential Stuffing.** Reusing leaked username and password pairs on other accounts, hoping the victim didn't change them. 
-**Brute Force Attack.** Trying huge numbers of password combinations until one works, which quickly cracks simple passwords. 
-**Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop the user from typing a password in manually.
+* **Dictionary Attack.** A brute force attack using common words, sometimes personal ones like a pet's or child's name, collected into dictionaries. 
+* **Credential Stuffing.** Reusing leaked username and password pairs on other accounts, hoping the victim didn't change them. 
+* **Brute Force Attack.** Trying huge numbers of password combinations until one works, which quickly cracks simple passwords. 
+* **Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop the user from typing a password in manually.
 
 ## d. Details of PGP
 
