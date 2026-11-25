@@ -52,6 +52,14 @@ code, kbd, pre, samp, tt,
   margin: 0;
 }
 
+.site-footer a {
+  color: #fff;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 @media (min-width: 768px) {
   .site-footer {
     flex-direction: row;
