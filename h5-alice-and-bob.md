@@ -1,0 +1,285 @@
+# H5_AliceAndBob
+
+## x. Read and summarize (with some bullet points)
+### € Schneier 2015: Applied Cryptography:
+
+#### Chapter 1 - Foundations
+
+**Key terms**
+
+Plaintext &rarr; Encryption &rarr; Ciphertext &rarr; Decryption &rarr; Original plaintext
+
+**Crypthography** (art and science of keeping message secure) practiced by *cryptographers.* 
+
+**Cryptoanalysis** (art and science of breaking ciphertext) practiced by *cryptoanalysts.* 
+
+**Cryptology** (branch of mathematics encompassing both cryptography and cryptanalysis) practiced by *cryptologists.* 
+
+**Sender and receiver**
+
+**Sender** (A) is an actor who sends the message. **Receiver** (B) is the one who receives it. Besides that in crypography context Sender is the one who encypts the message and Receiver is who decrypts it.
+
+Alice and Bob are placeholder names used for describing two parties of communication, A and B.
+
+**Messages and Encryption**
+
+Message can be a text file, a bitmap, a stream of digitized voice, video, image.
+
+Plaintext is denoted by M, for message, or P, for plaintext.
+
+Ciphertext is denoted by C. 
+
+The encryption function E, operates on M to produce C: *E(M) = C* 
+
+In the reverse process, the decryption function D operates on C to produce M: *D(C) = M*
+
+The whole point of encrypting and then decrypting a message is to recover the original plaintext: *D(E(M)) = M*
+
+**Algorithms and Keys**
+
+A cryptographic algorithm (cipher), is the mathematical function for encryption and decryption.
+
+Restricted algorithm based on keeping the way that algorithm works a secret. Restricted algorithms are inadequate by today's standards, because if someone accidentally reveals the secret, everyone must change their algorithm. They neither allow quality control or standardization. Despite these drawbacks, restricted algorithms are enormously popular for low-security applications.
+
+Modern cryptography solves this problem with a key (K). Both the encryption and decryption operations use this key, so the functions now are:
+
+*E<sub>K</sub>(M) = C*
+
+*D<sub>K</sub>(C) = M*
+
+*D<sub>K</sub>(E<sub>K</sub>(M)) = M*
+
+Some algorithms use a different encryption key (K1) and decryption key (K2):
+
+*E<sub>K1</sub>(M) = C*
+
+*D<sub>K2</sub>(C) = M*
+
+*D<sub>K2</sub>(E<sub>K1</sub> (M)) = M*
+
+**Symmetric Algorithms**
+
+Symmetric (sometimes conventional) algorithms, are algorithms (secret-key, single-key, or one-key algorithms) where the encryption key can be calculated from the decryption key and vice versa. These algorithms require that the sender and receiver agree on a key before they can communicate securely. As long as the communication needs to remain secret, the key must remain secret.
+
+Algorithms that operate on the plaintext a single bit (or byte) at a time are called stream algorithms. Algorithms that operate on the plaintext in groups of bits (64 bits—large blocks) are called block algorithms or block ciphers.
+
+**Public-Key Algorithms**
+
+Public-key (asymmetric) algorithms are designed so that the key used for encryption is different from the key used for decryption.
+
+Anyone can use the public key (the encryption key can be made public) to encrypt a message, but only a specific person with the corresponding decryption key can decrypt the message.
+
+In these systems, the encryption key is often called the public key, and the decryption key is often called the private key.
+
+Sometimes, messages will be encrypted with the private key and decrypted with the public key; this is used in digital signatures.
+
+#### Chapter 2 - Protocol Building Blocks, sections
+
+The chapter focuses on public-key cryptography. A symmetric algorithm is like a safe with one combination: whoever knows it can both lock and unlock, but both people must share that secret first. In 1976, Diffie and Hellman introduced a system with two different keys, one public, one private. It works like a mailbox: anyone can drop mail in through the slot (encrypt with the public key), but only the owner with the key can take mail out (decrypt with the private key). You can't work out the private key from the public one.
+
+This solves the biggest problem of symmetric encryption: agreeing on a secret key without meeting first. Alice just looks at Bob's public key, encrypts, and sends. An eavesdropper (Eve) who sees the public key and the encrypted message still can't read it. In a network, everyone publishes their public key, so you can message anyone, like regular mail.
+
+The challenge with public-key crypto is that it isn't used to encrypt actual messages, because it's very slow (symmetric is 1000+ times faster) and vulnerable to guessing attacks when the possible messages are few.
+
+The solution for the challenge are hybrid systems which use use both. Public-key crypto securely shares a one-time session key, then a fast symmetric algorithm uses that key to encrypt the conversation. This is also safer because the session key is created when needed and destroyed after, so no long-lived key sits around to be stolen, and the private key is only used briefly.
+
+### Karvinen 2023: PGP - Send Encrypted and Signed Message - gpg
+
+The material is a hands-on tutorial on how to sen private and verified messages, using PGP with the gpg command-line tool. Alice sends a secret message to Tero. Encryption keeps others from reading it; signing proves it really came from Alice and wasn't changed. Alice is simulated with a separate folder to make practice easy on one computer.
+
+Each person has a public key (shared freely) and a private key (secret). They're used in opposite directions:
+
+* Alice encrypts with Tero's public key, and only Tero's private key can open it.
+* Alice signs with her own private key, and Tero verifies with Alice's public key to confirm it's her.
+
+**Setting up trust.** The two exchange public keys and check that each key really belongs to the right person by comparing its fingerprint over a trusted channel (a phone call). The keys can travel over the untrusted internet; only the fingerprint check needs to be trustworthy.
+
+**Sending.** Alice runs one command that encrypts and signs her message, producing a block of plain text safe to paste anywhere. Tero decrypts it with his private key, and gpg confirms "Good signature from Alice."
+
+PGP lets two people communicate privately and prove their identities over an untrusted network, as long as they verify each other's key fingerprints once at the start.
+
+## a. Pubkey today
+
+One of my most frequent daily uses is regular internet browsing. Each time I visit a website over HTTPS, my browser receives the website's public key inside its certificate. The website (the server) keeps the matching private key secret. My browser uses the public key to verify the server and to securely agree on a shared session key. From that moment public key is not used anymore in this session, as both sides use a faster shared key to encrypt everything in both directions, so a malicious actor on the network can't read my password or bank details. So the public key does the setup, the server's private key proves its identity, and the shared symmetric key does the actual work during the session. [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/)
+
+## b. Encrypt and decrypt a message
+
+Following tutorial steps I created key pairs, then encrypted, decrypted, and read the message sent by Alice. This last step of the process can be seen on Figure 1.
+
+<figure>
+  <img src="assets/images/gpg.png" alt="Good signature from Alice" width="650" />
+  <figcaption><em>Figure 1. Good signature from Alice.</em></figcaption>
+</figure>
+
+Good signature result shows that the process was done correctly.
+
+### The process
+
+* During the setup Mitya (in my case) and Alice generate public and private keys (keypair). They exchange public keys and verify fingerprints over a trusted channel.
+* Then Alice encrypts with Mitya's public key, so only I can read it. She signs with her own private key, so I can confirm it's from Alice.
+* I decrypt with my own private key. I verify the signature with Alice's public key.
+
+### Security evaluation
+
+I tried using PGP with `gpg` myself for the very first time.
+
+It provides:
+
+* Strong encryption. I could see the whole encrypted message but couldn't read it without the right private key.
+* It keeps the message private (encryption) and proves who sent it (signing), fulfilling authentication, integrity and nonrepudiation principles of cryptography.
+* PGP is a long-established standard, and GPG is open-source, so it's been well checked. Even Linux developers rely on it.
+
+However it has some downsides:
+
+* The private key must stay secret. If someone gets it, they can read user's messages and pretend to be that user.
+* Keys must be verified. The encryption is only safe if a user trusts the right public key. Checking the fingerprint is the key step, and it's easy for a beginner to skip, as I did.
+  <figure>
+    <img src="assets/images/gpg-2.png" alt="The result of fingerprint left unchecked." width="650" />
+    <figcaption><em>Figure 2. The result of fingerprint left unchecked.</em></figcaption>
+  </figure>
+* It's easy to make mistakes. Setup took attention, and I got a trust warning by missing a step.
+
+## c. Password management
+
+KeePassXC stores passwords in an encrypted database on the user's machine. The KeePassXC-Browser extension connects the browser to the KeePassXC app, which fills in saved credentials.
+
+Below is an example of using the KeePassXC-Browser extension. This entry was added to the database manually, so on my first visit to the site, KeePassXC asked me to allow the extension to access the entry whose URL matches the site I'm visiting.
+
+<figure>
+  <img src="assets/images/keepassxc-1.png" alt="KeePassXC is requesting access" width="645" />
+  <figcaption><em>Figure 3. KeePassXC-Browse is requesting access to CyberSec app entry in KeePassXC database.</em></figcaption>
+</figure>
+
+Once access is granted, clicking the KeePassXC icon in the username field fills the credentials into the login form automatically.
+
+<figure>
+  <img src="assets/images/keepassxc-2.png" alt="Filling in credentials" width="410" />
+  <figcaption><em>Figure 4. Filling in credentials.</em></figcaption>
+</figure>
+
+A password manager can help protect a user from several password attacks. There are others, such as Man-in-the-Middle or keylogging, that a password manager can barely protect against, but it can potentially help with the following:
+
+* **Dictionary Attack.** A brute force attack using common words, sometimes personal ones like a pet's or child's name, collected into dictionaries. 
+* **Credential Stuffing.** Reusing leaked username and password pairs on other accounts, hoping the victim didn't change them. 
+* **Brute Force Attack.** Trying huge numbers of password combinations until one works, which quickly cracks simple passwords. 
+* **Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop the user from typing a password in manually.
+
+## d. Details of PGP
+I ran the whole PGP tutorial [again](#b-encrypt-and-decrypt-a-message) but in a slightly different manner: I have created separate directories for Alice and Bob under the `home/kali/` in my [virtual Kali environment](h1-cyber-science.md#installing-linux-on-a-virtual-machine).
+
+<figure>
+  <img src="assets/images/gpg/1.png" alt="Update and installation of pgp" width="650" />
+  <figcaption><em>Figure 5. Update and installation of pgp.</em></figcaption>
+</figure>
+
+Create user directories and `chmod 700` makes them private.
+<figure>
+  <img src="assets/images/gpg/2.png" alt="Alice and Bob directories created and rights set" width="650" />
+  <figcaption><em>Figure 6. Alice and Bob directories created and rights set.</em></figcaption>
+</figure>
+
+Enter real name `Alice`, email `alice@example.com.demo`, confirm with `O`, passphrase skipped for this training purpose.
+<figure>
+  <img src="assets/images/gpg/3.png" alt="Keypair for Alice" width="650" />
+  <figcaption><em>Figure 7. Keypair for Alice.</em></figcaption>
+</figure>
+
+Enter real name `Bob`, email `bob@example.com.demo`, confirm with `O`, passphrase skipped for this training purpose.
+<figure>
+  <img src="assets/images/gpg/4.png" alt="Keypair for Bob" width="650" />
+  <figcaption><em>Figure 8. Keypair for Bob.</em></figcaption>
+</figure>
+
+Check that each has its own key.
+<figure>
+  <img src="assets/images/gpg/5.png" alt="Keys check" width="650" />
+  <figcaption><em>Figure 9. Keys check.</em></figcaption>
+</figure>
+
+Export both public keys
+<figure>
+  <img src="assets/images/gpg/6.png" alt="Export public keys" width="650" />
+  <figcaption><em>Figure 10. Export public keys.</em></figcaption>
+</figure>
+
+Import each other's public key
+<figure>
+  <img src="assets/images/gpg/7.png" alt="Import public keys" width="650" />
+  <figcaption><em>Figure 11. Import public keys.</em></figcaption>
+</figure>
+
+Verify fingerprints and sign each other's keys
+<figure>
+  <img src="assets/images/gpg/8.png" alt="Verify fingerprints from Alice's side" width="650" />
+  <figcaption><em>Figure 12. Verify fingerprints from Alice's side.</em></figcaption>
+</figure>
+
+<figure>
+  <img src="assets/images/gpg/9.png" alt="Alice signs Bob's key" width="650" />
+  <figcaption><em>Figure 13. Alice signs Bob's key.</em></figcaption>
+</figure>
+
+<figure>
+  <img src="assets/images/gpg/10.png" alt="Verify fingerprints from Bob's side" width="650" />
+  <figcaption><em>Figure 14. Verify fingerprints from Bob's side.</em></figcaption>
+</figure>
+
+<figure>
+  <img src="assets/images/gpg/11.png" alt="Bob signs Alice's key" width="650" />
+  <figcaption><em>Figure 15. Bob signs Alice's key.</em></figcaption>
+</figure>
+
+Check the trust.
+<figure>
+  <img src="assets/images/gpg/12.png" alt="Trust check" width="650" />
+  <figcaption><em>Figure 16. Trust check.</em></figcaption>
+</figure>
+
+Alice creates a message file.
+<figure>
+  <img src="assets/images/gpg/13.png" alt="Create a message file" width="650" />
+  <figcaption><em>Figure 17. Create a message file.</em></figcaption>
+</figure>
+
+Alice encrypts the message file.
+<figure>
+  <img src="assets/images/gpg/14.png" alt="Encrypt the file" width="650" />
+  <figcaption><em>Figure 18. Encrypt the file.</em></figcaption>
+</figure>
+
+Result check shows that message is encrypted.
+<figure>
+  <img src="assets/images/gpg/15.png" alt="Encryption result" width="650" />
+  <figcaption><em>Figure 19. Encryption result.</em></figcaption>
+</figure>
+
+Alice "sends" (copies) the message to Bob.
+<figure>
+  <img src="assets/images/gpg/16.png" alt="Copy message file" width="650" />
+  <figcaption><em>Figure 20. Copy message file.</em></figcaption>
+</figure>
+
+If Bob tries to open the message right away, he can't read it, since it still is encrypted.
+<figure>
+  <img src="assets/images/gpg/17.png" alt="Encrypted message" width="650" />
+  <figcaption><em>Figure 21. Encrypted message.</em></figcaption>
+</figure>
+
+Bob decrypts and verifies.
+<figure>
+  <img src="assets/images/gpg/18.png" alt="Decrypted message" width="650" />
+  <figcaption><em>Figure 22. Decrypted message.</em></figcaption>
+</figure>
+
+## e. Cryptopals
+Coming soon.
+
+## References
+
+* Cloudflare: [What happens in a TLS handshake?](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/). Cloudflare Learning Center. Read on 23.11.2026.
+* Karvinen, T. 2023: [PGP - Send Encrypted and Signed Message - gpg](https://terokarvinen.com/2023/pgp-encrypt-sign-verify/). Read on 21.11.2026.
+* Karvinen, T. 2026. Cyber Security – 2026 late autumn, homework h5. Accessed 21.11.2026. [https://terokarvinen.com/cyber-security/#h5-alice-and-bob](https://terokarvinen.com/cyber-security/).
+* OneLogin: [Six Types of Password Attacks & How to Stop Them](https://www.onelogin.com/learn/6-types-password-attacks/). OneLogin Learning Hub. Read on 23.11.2026.
+* Schneier, B. 2015: [Applied Cryptography: Protocols, Algorithms and Source Code in C](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/). 20th Anniversary Edition, Wiley. Read on 21.11.2026:
+  * Chapter 1 – Foundations, section 1.1 [Terminology](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/08_chap01.html#chap01-sec001) (Sender and Receiver, Messages and Encryption, Algorithms and Keys, Symmetric Algorithms, Public-Key Algorithms).
+  * Chapter 2 – Protocol Building Blocks, section 2.5 [Communications Using Public-Key Cryptography](https://learning.oreilly.com/library/view/applied-cryptography-protocols/9781119096726/10_chap02.html#chap02-sec005).

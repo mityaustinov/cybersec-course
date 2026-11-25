@@ -12,6 +12,10 @@ nav:
     url: /h2-scene.html
   - title: "h3_CyberLab"
     url: /h3-cyber-lab.html
+  - title: "h4_FeedMe"
+    url: /h4-feed-me.html
+  - title: "h5_AliceAndBob"
+    url: /h5-alice-and-bob.html
 ---
 
 <section class="terminal" aria-label="Site navigation">
@@ -88,7 +92,8 @@ nav:
         "  whoami       who are you?",
         "  date         show the date",
         "  echo <text>  print text",
-		"  sudo         become root",
+		    "  sudo         become root",
+        '  exit         exit the terminal (try, at least)',
         "  help         show this help"
       ];
     },
@@ -110,6 +115,13 @@ nav:
   };
   commands.cd = commands.open;
 
+  function logCommand(cmd) {
+    var name = Object.prototype.hasOwnProperty.call(commands, cmd) ? cmd : "unknown";
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: "terminal-" + name, title: "Terminal: " + name, event: true });
+    }
+  }
+
   function run(line) {
     print("guest@icb705:~$ " + line, true);
     var trimmed = line.trim();
@@ -120,6 +132,8 @@ nav:
     var parts = trimmed.split(/\s+/);
     var cmd = parts[0].toLowerCase();
     var args = parts.slice(1);
+
+    logCommand(cmd);
 
     if (Object.prototype.hasOwnProperty.call(commands, cmd)) {
       commands[cmd](args).forEach(function (l) { print(l); });

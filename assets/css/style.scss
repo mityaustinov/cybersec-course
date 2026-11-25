@@ -52,7 +52,6 @@ code, kbd, pre, samp, tt,
   font-size: clamp(6px, 1.2vw, 12px);
   line-height: 1.15;
   white-space: pre;
-  overflow-x: auto;
   width: fit-content;
   max-width: 100%;
   margin: 0 0 1rem;
@@ -181,4 +180,20 @@ body.home .site-footer {
   color: var(--term-green);
   caret-color: var(--term-green);
   font: inherit;
+}
+
+.markdown-body .heading-anchor {
+  color: #888;
+  text-decoration: none;
+  opacity: 0.15;
+  transition: opacity 0.15s;
+}
+
+.markdown-body :is(h1, h2, h3, h4, h5, h6):hover .heading-anchor,
+.markdown-body .heading-anchor:focus {
+  opacity: 1;
+}
+
+.markdown-body :is(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: 1rem;
 }
