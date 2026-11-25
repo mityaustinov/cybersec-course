@@ -165,7 +165,7 @@ A password manager can help protect a user from several password attacks. There 
 * **Phishing.** A password manager auto-fills only on the exact saved domain, so on a look-alike site it stays silent, which works as a warning, but it doesn't stop the user from typing a password in manually.
 
 ## d. Details of PGP
-I ran the whole PGP tutorial again but in a slightly different manner: I have created separate directories for Alice and Bob under the `home/kali/` in my virtual Kali environment.
+I ran the whole PGP tutorial [again](#b-encrypt-and-decrypt-a-message) but in a slightly different manner: I have created separate directories for Alice and Bob under the `home/kali/` in my [virtual Kali environment](h1-cyber-science.md#installing-linux-on-a-virtual-machine).
 
 <figure>
   <img src="assets/images/gpg/1.png" alt="Update and installation of pgp" width="650" />

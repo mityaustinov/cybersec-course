@@ -51,7 +51,7 @@ Below are the connections showing how the reviewed article [from h1](h1-cyber-sc
 The connections are laid out as in the following example:
 
 * **Connection**
-  - h1 review
+  - [h1 review](h1-cyber-science.md#review-of-the-article)
   - Darknet Diaries, ep. 144
   - Unit 42 blog
 

@@ -42,7 +42,7 @@ The main takeaway of KKO:2003:36 is that attempting to gain unauthorised access 
 
 ## a&ndash;e. Reader and feeds
 
-I have previously, as a [voluntary task](https://mityaustinov.github.io/cybersec-course/h2-scene#feed-reader) already installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds.
+I have previously, as a [voluntary task](h2-scene.md#feed-reader) already installed [NetNewsWire](https://netnewswire.com/) RSS reader and subscribed to several feeds.
 
 <figure>
   <img src="assets/images/netnewswire2.png" alt="NetNewsWire interface" width="800" />
@@ -56,12 +56,12 @@ I have previously, as a [voluntary task](https://mityaustinov.github.io/cybersec
 	* [Unit 42](https://unit42.paloaltonetworks.com/feed/) Recent updates on cyber security threats. I simply added `/feed` to the address I knew. 
 	* [NextJS Release Notes](https://github.com/vercel/next.js/releases.atom) and [React Release Notes](https://github.com/react/react/releases.atom) These are important, because I work a lot with ReactJS and NextJS and sometimes it is important to learn quickly, that a new version has been released. GitHub provides such feeds for public repositories.
  
-As I mentioned before, I started using feed reader a while ago. I noticed that my daily "tech news" routine became much more efficient. I simply watch through the feed and as before decide what to read more thoroughly, but now it takes less time. However, there are downsides. Sometimes it can be too much information even to quickly scroll through. Not every source that I typically follow provides RSS/Atom feed. Some entries are very brief about the content or have no summary at all and I need to check the site if that article is something that I really need to read. Nevertheless, the reader gives a very nice experience, because I'm less distracted.
+As I [mentioned before](h2-scene.md#feed-reader), I started using feed reader a while ago. I noticed that my daily "tech news" routine became much more efficient. I simply watch through the feed and as before decide what to read more thoroughly, but now it takes less time. However, there are downsides. Sometimes it can be too much information even to quickly scroll through. Not every source that I typically follow provides RSS/Atom feed. Some entries are very brief about the content or have no summary at all and I need to check the site if that article is something that I really need to read. Nevertheless, the reader gives a very nice experience, because I'm less distracted.
 
 
 ## f. Port scan
 
-For lab purposes I'm using a VM with Kali, so there was no need to install `nmap`, since it is pre-installed in Kali.
+For lab purposes I'm using a [VM with Kali](h1-cyber-science.md#installing-linux-on-a-virtual-machine), so there was no need to install `nmap`, since it is pre-installed in Kali.
 
 <figure>
   <img src="assets/images/nmap-0.png" alt="Kali dashboard shows nmap found already installed in system" width="640" />

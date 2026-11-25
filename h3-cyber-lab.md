@@ -16,7 +16,7 @@
   sudo apt-get upgrade
   ```
 * **Personal notes:**
-  * I'm using a Mac, so I use [UTM](https://getutm.app/) to create virtual machines.
+  * I'm using a Mac, so I use [UTM](https://getutm.app/) to create virtual machines (see [h1](h1-cyber-science.md#installing-linux-on-a-virtual-machine) and [h2](h2-scene.md#install-debian)).
   * In UTM, the ISO must be removed from the virtual CD/DVD drive after installation, so that the installed Linux starts on the next boot instead of the installer.
 
 ### Command Line Basics Revisited
@@ -48,7 +48,7 @@ Presentation is scheduled on December 12, 2026, w50.
 
 ## b. Linux
 
-I have installed Linux, [Kali](https://mityaustinov.github.io/cybersec-course/h1-cyber-science.html#installing-linux-on-a-virtual-machine-) and [Debian](https://mityaustinov.github.io/cybersec-course/h2-scene.html#install-debian-) as voluntary tasks for homeworks h1 and h2.
+I have installed Linux, [Kali](h1-cyber-science.md#installing-linux-on-a-virtual-machine) and [Debian](h2-scene.md#install-debian) as voluntary tasks for homeworks [h1](h1-cyber-science.md#voluntary-bonus-tasks) and [h2](h2-scene.md#voluntary-tasks).
 
 ## Voluntary bonuses
 
