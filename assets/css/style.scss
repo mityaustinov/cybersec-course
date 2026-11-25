@@ -43,8 +43,23 @@ code, kbd, pre, samp, tt,
 
 .site-footer {
   border-top: 1px solid #eaecef;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
+.site-footer p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+}
 
 
 .ascii-banner {
